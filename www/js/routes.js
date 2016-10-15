@@ -36,13 +36,13 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-  .state('page', {
-    url: '/page4',
+  .state('tabsController.arsenalSchedule', {
+    url: '/arsenalSchedule',
     templateUrl: 'templates/page.html',
-    controller: 'pageCtrl'
+    controller: 'arsenalCtrl'
   })
 
-$urlRouterProvider.otherwise('/page1/Teams')
+$urlRouterProvider.otherwise('/page1/arsenalSchedule')
 
   
 
