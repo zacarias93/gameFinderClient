@@ -19,8 +19,7 @@ $http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {
 $scope.games = [];
-$http.get('/bayern.json')
-// http://api.football-data.org/v1/teams/57/fixtures
+$http.get('http://api.football-data.org/v1/teams/57/fixtures')
 .then(function (response) {
 	console.log(response);
 	$scope.games = response.data;
@@ -34,8 +33,7 @@ $http.get('/bayern.json')
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {
 $scope.games = [];
-$http.get('/arsenal.json')
-// http://api.football-data.org/v1/teams/57/fixtures
+$http.get('http://api.football-data.org/v1/teams/57/fixtures')
 .then(function (response) {
 	console.log(response);
 	$scope.games = response.data;
@@ -49,8 +47,7 @@ $http.get('/arsenal.json')
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {
 $scope.games = [];
-$http.get('/barcelona.json')
-// http://api.football-data.org/v1/teams/57/fixtures
+$http.get('http://api.football-data.org/v1/teams/57/fixtures')
 .then(function (response) {
 	console.log(response);
 	$scope.games = response.data;
