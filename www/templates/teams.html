@@ -1,20 +1,17 @@
-<ion-view title="Teams" id="page2">
-    <ion-content padding="true"  class="has-header">
-        <form id="teams-form1" class="list">
-            <label class="item item-input" id="teams-input3">
-                <input type="text" style="text-align:center" placeholder="Enter Team Here">
-            </label>
+<ion-view title="EPL Top 5 " id="page2">
+    <ion-content padding="true"  class="has-header"> 
             <ion-list id="schedule-list1" ng-repeat="team in teams" ng-if="$index<5">
             <ion-item class="dark" id="schedule-list-item2"  return false;">
-            <img src="{{team.crestURI}}" width="20%" height="20%" style="float:right;">
-                    <p style="float:left"> {{team.position}} </p>
-                    <p align="center"> {{team.teamName}} </p>
-                    <p align="center"> {{team.wins}}-{{team.draws}}-{{team.losses}} </p>
-                    <p align="center"> Points: {{team.points}} </p>
-                    <div style="float:left">
-                        <span class="input-label">{{game["homeTeamName"]}}</span>
-                        <span class="input-label">{{game["awayTeamName"]}}</span>
-                    </div>
+                
+                
+                <img src="{{team.crestURI}}" width="20%" height="auto" style="float:right;">
+                <div style="float:left">
+
+                    <span class="input-label"><h2><b>Rank: {{team.position}}</b></h2></span>
+                    <span class="input-label">{{team.teamName}}</span>
+                    <span class="input-label">{{team.wins}}-{{team.draws}}-{{team.losses}}</span>
+                    <span class="input-label">Points: {{team.points}}</span>
+                </div>
             </ion-item>
         </ion-list>
             <div>
