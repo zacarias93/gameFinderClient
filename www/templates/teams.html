@@ -1,21 +1,25 @@
 <ion-view title="Teams" id="page2">
-    <ion-content padding="true" style="background: url(img/G3MhNMGQcOBFmt3m8geJ_EPL.jpeg) no-repeat center;background-size:cover;" class="has-header">
+    <ion-content padding="true"  class="has-header">
         <form id="teams-form1" class="list">
             <label class="item item-input" id="teams-input3">
-                <input type="text" style="text-align:center" placeholder="Find Team To Follow">
+                <input type="text" style="text-align:center" placeholder="Enter Team Here">
             </label>
-
-            <div class="spacer" style="width: 300px; height: 364px;"></div>
-
-            <label class="item item-select" id="teams-select1">
-                <span class="input-label">List of My Teams</span>
-                <select>
-                    <option>Arsenal</option>
-                    <option>Barcelona</option>
-                    <option>Bayern Munich</option>
-                    <option></option>
-                </select>
-            </label>
+            <ion-list id="schedule-list1" ng-repeat="team in teams" ng-if="$index<5">
+            <ion-item class="dark" id="schedule-list-item2"  return false;">
+            <img src="{{team.crestURI}}" width="20%" height="20%" style="float:right;">
+                    <p style="float:left"> {{team.position}} </p>
+                    <p align="center"> {{team.teamName}} </p>
+                    <p align="center"> {{team.wins}}-{{team.draws}}-{{team.losses}} </p>
+                    <p align="center"> Points: {{team.points}} </p>
+                    <div style="float:left">
+                        <span class="input-label">{{game["homeTeamName"]}}</span>
+                        <span class="input-label">{{game["awayTeamName"]}}</span>
+                    </div>
+            </ion-item>
+        </ion-list>
+            <div>
+                <img src="https://www.bestsmartdns.com/file/2015/08/Barclays-Premier-League.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </div>
         </form>
     </ion-content>
 </ion-view>

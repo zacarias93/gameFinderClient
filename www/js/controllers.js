@@ -1,9 +1,15 @@
 angular.module('app.controllers', [])
   
-.controller('teamsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('teamsCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $http) {
+$scope.teams = [];
+$http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
+.then(function(response) {
+	console.log(response);
+	$scope.teams = response.data.standing
+})
 
 
 }])
