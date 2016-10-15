@@ -1,7 +1,7 @@
 <ion-view title="Schedule" id="page3">
     <ion-content padding="true" class="has-header" >
         <ion-list id="schedule-list1" ng-repeat="game in games['fixtures'] | filter: { status: 'SCHEDULED'}" ng-if="$index<3">
-            <ion-item class="dark" id="schedule-list-item2"  return false;">
+            <ion-item class="dark" id="schedule-list-item2" return false;">
 
                     <p style="float:right"> {{game.date | date:'short'}} </p>
 
@@ -17,7 +17,7 @@
         <div class="list card" id="schedule-card21"></div>
         <div class="list card" id="schedule-card22">
             <div class=" item item-image">
-                <img src="img/bayern.jpeg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+                <img src="img/s8BQwpATxGGCulaJHo1B_Arsenal.png" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
             </div>
         </div>
     </ion-content>

@@ -20,12 +20,32 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.schedule', {
-    url: '/Schedule',
+  .state('tabsController.bayernSchedule', {
+    url: '/bayernSchedule',
     views: {
       'tab3': {
-        templateUrl: 'templates/schedule.html',
-        controller: 'scheduleCtrl'
+        templateUrl: 'templates/bayern.html',
+        controller: 'bayernCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.arsenalSchedule', {
+    url: '/arsenalSchedule',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/arsenal.html',
+        controller: 'arsenalCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.barcelonaSchedule', {
+    url: '/barcelonaSchedule',
+    views: {
+      'tab5': {
+        templateUrl: 'templates/barcelona.html',
+        controller: 'barcelonaCtrl'
       }
     }
   })
@@ -36,11 +56,7 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-  .state('tabsController.arsenalSchedule', {
-    url: '/arsenalSchedule',
-    templateUrl: 'templates/page.html',
-    controller: 'arsenalCtrl'
-  })
+  
 
 $urlRouterProvider.otherwise('/page1/arsenalSchedule')
 

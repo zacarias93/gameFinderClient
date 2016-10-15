@@ -1,0 +1,1137 @@
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/teams/5/fixtures"
+},
+"team": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"count": 42,
+"fixtures": [
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/153633"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/432"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/49"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-08-19T18:45:00Z",
+"status": "FINISHED",
+"matchday": 1,
+"homeTeamName": "FC Carl Zeiss Jena",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": 0,
+"goalsAwayTeam": 5
+},
+"odds": {
+"homeWin": 56,
+"draw": 15,
+"awayWin": 1.03
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152258"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/12"
+}
+},
+"date": "2016-08-26T18:30:00Z",
+"status": "FINISHED",
+"matchday": 1,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Werder Bremen",
+"result": {
+"goalsHomeTeam": 6,
+"goalsAwayTeam": 0
+},
+"odds": {
+"homeWin": 1.12,
+"draw": 8,
+"awayWin": 26
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152247"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/6"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-09-09T18:30:00Z",
+"status": "FINISHED",
+"matchday": 2,
+"homeTeamName": "FC Schalke 04",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": 0,
+"goalsAwayTeam": 2
+},
+"odds": {
+"homeWin": 12,
+"draw": 6,
+"awayWin": 1.3
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155327"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/440"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/1104"
+}
+},
+"date": "2016-09-13T18:45:00Z",
+"status": "FINISHED",
+"matchday": 1,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "FC Rostov",
+"result": {
+"goalsHomeTeam": 5,
+"goalsAwayTeam": 0
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152233"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/31"
+}
+},
+"date": "2016-09-17T13:30:00Z",
+"status": "FINISHED",
+"matchday": 3,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "FC Ingolstadt 04",
+"result": {
+"goalsHomeTeam": 3,
+"goalsAwayTeam": 1
+},
+"odds": {
+"homeWin": 1.12,
+"draw": 8,
+"awayWin": 15
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152224"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/9"
+}
+},
+"date": "2016-09-21T18:00:00Z",
+"status": "FINISHED",
+"matchday": 4,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Hertha BSC",
+"result": {
+"goalsHomeTeam": 3,
+"goalsAwayTeam": 0
+},
+"odds": {
+"homeWin": 1.14,
+"draw": 7.5,
+"awayWin": 17
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152218"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/7"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-09-24T13:30:00Z",
+"status": "FINISHED",
+"matchday": 5,
+"homeTeamName": "Hamburger SV",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": 0,
+"goalsAwayTeam": 1
+},
+"odds": {
+"homeWin": 17,
+"draw": 5.8,
+"awayWin": 1.22
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155251"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/440"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/78"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-09-28T18:45:00Z",
+"status": "FINISHED",
+"matchday": 2,
+"homeTeamName": "Club Atlético de Madrid",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": 1,
+"goalsAwayTeam": 0
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152206"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/1"
+}
+},
+"date": "2016-10-01T13:30:00Z",
+"status": "FINISHED",
+"matchday": 6,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "1. FC Köln",
+"result": {
+"goalsHomeTeam": 1,
+"goalsAwayTeam": 1
+},
+"odds": {
+"homeWin": 1.16,
+"draw": 7,
+"awayWin": 17
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152199"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/19"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-10-15T13:30:00Z",
+"status": "FINISHED",
+"matchday": 7,
+"homeTeamName": "Eintracht Frankfurt",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": 2,
+"goalsAwayTeam": 2
+},
+"odds": {
+"homeWin": 11,
+"draw": 5.5,
+"awayWin": 1.25
+}
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155250"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/440"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/674"
+}
+},
+"date": "2016-10-19T18:45:00Z",
+"status": "TIMED",
+"matchday": 3,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "PSV Eindhoven",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152188"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/18"
+}
+},
+"date": "2016-10-22T16:30:00Z",
+"status": "SCHEDULED",
+"matchday": 8,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Bor. Mönchengladbach",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155203"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/432"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/16"
+}
+},
+"date": "2016-10-26T18:45:00Z",
+"status": "TIMED",
+"matchday": 2,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "FC Augsburg",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152178"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/16"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-10-29T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 9,
+"homeTeamName": "FC Augsburg",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155249"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/440"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/674"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-11-01T19:45:00Z",
+"status": "TIMED",
+"matchday": 4,
+"homeTeamName": "PSV Eindhoven",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152170"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/2"
+}
+},
+"date": "2016-11-05T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 10,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "TSG 1899 Hoffenheim",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152162"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/4"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-11-19T17:30:00Z",
+"status": "SCHEDULED",
+"matchday": 11,
+"homeTeamName": "Borussia Dortmund",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155323"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/440"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/1104"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-11-23T17:00:00Z",
+"status": "TIMED",
+"matchday": 5,
+"homeTeamName": "FC Rostov",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152151"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/3"
+}
+},
+"date": "2016-11-26T17:30:00Z",
+"status": "SCHEDULED",
+"matchday": 12,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Bayer Leverkusen",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152147"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/15"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-12-02T19:30:00Z",
+"status": "SCHEDULED",
+"matchday": 13,
+"homeTeamName": "1. FSV Mainz 05",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/155247"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/440"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/78"
+}
+},
+"date": "2016-12-06T19:45:00Z",
+"status": "TIMED",
+"matchday": 6,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Club Atlético de Madrid",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152133"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/11"
+}
+},
+"date": "2016-12-10T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 14,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "VfL Wolfsburg",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152126"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/55"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2016-12-18T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 15,
+"homeTeamName": "SV Darmstadt 98",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152115"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/721"
+}
+},
+"date": "2016-12-21T19:00:00Z",
+"status": "SCHEDULED",
+"matchday": 16,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Red Bull Leipzig",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152109"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/17"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-01-21T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 17,
+"homeTeamName": "SC Freiburg",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152104"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/12"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-01-28T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 18,
+"homeTeamName": "Werder Bremen",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152089"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/6"
+}
+},
+"date": "2017-02-04T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 19,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "FC Schalke 04",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152082"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/31"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-02-11T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 20,
+"homeTeamName": "FC Ingolstadt 04",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152075"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/9"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-02-18T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 21,
+"homeTeamName": "Hertha BSC",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152062"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/7"
+}
+},
+"date": "2017-02-25T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 22,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Hamburger SV",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152058"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/1"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-03-04T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 23,
+"homeTeamName": "1. FC Köln",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152044"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/19"
+}
+},
+"date": "2017-03-11T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 24,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Eintracht Frankfurt",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152036"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/18"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-03-18T14:30:00Z",
+"status": "SCHEDULED",
+"matchday": 25,
+"homeTeamName": "Bor. Mönchengladbach",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152026"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/16"
+}
+},
+"date": "2017-04-01T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 26,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "FC Augsburg",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152020"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/2"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-04-05T18:00:00Z",
+"status": "SCHEDULED",
+"matchday": 27,
+"homeTeamName": "TSG 1899 Hoffenheim",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/152007"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/4"
+}
+},
+"date": "2017-04-08T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 28,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "Borussia Dortmund",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/151999"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/3"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-04-15T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 29,
+"homeTeamName": "Bayer Leverkusen",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/151989"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/15"
+}
+},
+"date": "2017-04-22T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 30,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "1. FSV Mainz 05",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/151988"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/11"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-04-29T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 31,
+"homeTeamName": "VfL Wolfsburg",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/151971"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/55"
+}
+},
+"date": "2017-05-06T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 32,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "SV Darmstadt 98",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/151967"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/721"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+}
+},
+"date": "2017-05-13T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 33,
+"homeTeamName": "Red Bull Leipzig",
+"awayTeamName": "FC Bayern München",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+},
+{
+"_links": {
+"self": {
+"href": "http://api.football-data.org/v1/fixtures/151953"
+},
+"competition": {
+"href": "http://api.football-data.org/v1/competitions/430"
+},
+"homeTeam": {
+"href": "http://api.football-data.org/v1/teams/5"
+},
+"awayTeam": {
+"href": "http://api.football-data.org/v1/teams/17"
+}
+},
+"date": "2017-05-20T13:30:00Z",
+"status": "SCHEDULED",
+"matchday": 34,
+"homeTeamName": "FC Bayern München",
+"awayTeamName": "SC Freiburg",
+"result": {
+"goalsHomeTeam": null,
+"goalsAwayTeam": null
+},
+"odds": null
+}
+]
+}
