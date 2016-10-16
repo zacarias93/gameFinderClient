@@ -19,7 +19,7 @@ $http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {
 $scope.games = [];
-$http.get('http://api.football-data.org/v1/teams/57/fixtures')
+$http.get('http://api.football-data.org/v1/teams/5/fixtures')
 .then(function (response) {
 	console.log(response);
 	$scope.games = response.data;
