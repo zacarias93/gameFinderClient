@@ -50,6 +50,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.searchSchedule', {
+    url: '/searchSchedule',
+    views: {
+      'tab6': {
+        templateUrl: 'templates/search.html',
+        controller: 'searchCtrl'
+      }
+    }
+  })
+
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
