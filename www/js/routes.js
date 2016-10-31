@@ -8,7 +8,11 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-  
+      .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  })
 
       .state('menu.teams', {
     url: '/Teams',
@@ -60,21 +64,19 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
+  .state('settings', {
+    url: '/settings',
+    templateUrl: 'templates/settings.html',
     controller: 'loginCtrl'
   })
 
   .state('menu', {
-    url: '/page1',
+    url: '/home',
     templateUrl: 'templates/menu.html',
     controller: 'loginCtrl',
     abstract:true
   })
 
 $urlRouterProvider.otherwise('/login')
-
-  
 
 });

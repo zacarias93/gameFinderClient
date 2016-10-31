@@ -112,4 +112,30 @@ $scope.searchForTeam = function() {
 }
 
 }])
+
+// .controller('settingsCtrl', ['$scope', '$http',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $http) {
+// $scope.games = [];
+
+// $scope.team = {
+// 	teamName:''
+// };
+
+// $scope.displayTeam = {
+// 	teamName:''
+// };
+
+// $http.get('http://api.football-data.org/v1/competitions/426/fixtures')
+// 	.then(function (response) {
+// 	console.log(response.data);
+// 	$scope.games = response.data;
+// })
+
+// $scope.searchForTeam = function() {
+// 	$scope.displayTeam.teamName = $scope.team.teamName;
+// }
+
+// }])
  
