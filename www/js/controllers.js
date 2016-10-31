@@ -59,7 +59,7 @@ function ($scope, $http, $state) {
 		"username": '',
 		"password": ''
 	}
-	
+
 	$scope.message = "";
 
 	$scope.login = function() {
@@ -71,7 +71,7 @@ function ($scope, $http, $state) {
 			if(response.data.userName === $scope.data.username  && response.data.password === $scope.data.password) {
 			console.log("tis true!!");
 			$scope.message= '';
-			$state.transitionTo("tabsController.teams");	
+			$state.transitionTo("menu.teams");	
 		}
 		else {
 			console.log("tis false!!");
@@ -81,7 +81,7 @@ function ($scope, $http, $state) {
 	}
 
 	$scope.newUser = function() {
-		$state.transitionTo("tabsController.newUser");
+		$state.transitionTo("menu.newUser");
 	}
 
 }])

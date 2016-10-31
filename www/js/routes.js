@@ -10,7 +10,7 @@ angular.module('app.routes', [])
     
   
 
-      .state('tabsController.teams', {
+      .state('menu.teams', {
     url: '/Teams',
     views: {
       'tab1': {
@@ -20,7 +20,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.bayernSchedule', {
+  .state('menu.bayernSchedule', {
     url: '/bayernSchedule',
     views: {
       'tab3': {
@@ -30,7 +30,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.arsenalSchedule', {
+  .state('menu.arsenalSchedule', {
     url: '/arsenalSchedule',
     views: {
       'tab4': {
@@ -40,7 +40,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.barcelonaSchedule', {
+  .state('menu.barcelonaSchedule', {
     url: '/barcelonaSchedule',
     views: {
       'tab5': {
@@ -50,7 +50,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.searchSchedule', {
+  .state('menu.searchSchedule', {
     url: '/searchSchedule',
     views: {
       'tab6': {
@@ -66,15 +66,12 @@ angular.module('app.routes', [])
     controller: 'loginCtrl'
   })
 
-  .state('tabsController', {
+  .state('menu', {
     url: '/page1',
-    templateUrl: 'templates/tabsController.html',
+    templateUrl: 'templates/menu.html',
     controller: 'loginCtrl',
     abstract:true
   })
-
-
-  
 
 $urlRouterProvider.otherwise('/login')
 
