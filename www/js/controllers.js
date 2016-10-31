@@ -48,6 +48,31 @@ $http.get('http://api.football-data.org/v1/teams/81/fixtures')
 })
 }])
 
+.controller('loginCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $http) {
+	console.log($scope.data);
+	var password = '';
+
+	$scope.data = {
+		"username": '',
+		"password": ''
+	}
+
+	$scope.login = function() {
+		console.log($scope.data);
+		var url = 'http://localhost:8080/findByEmail/' + $scope.data.username;
+		$http.get(url)
+		.then(function(response) {
+			console.log(response);
+		})
+	}
+
+}])
+
+
+
 .controller('searchCtrl', ['$scope', '$http',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -71,11 +96,6 @@ $http.get('http://api.football-data.org/v1/competitions/426/fixtures')
 $scope.searchForTeam = function() {
 	$scope.displayTeam.teamName = $scope.team.teamName;
 }
-
-
-
-
-
 
 }])
  

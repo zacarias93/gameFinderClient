@@ -60,6 +60,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.login', {
+    url: '/login',
+    views: {
+      'tab7': {
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+      }
+    }
+  })
+
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
