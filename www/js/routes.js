@@ -60,25 +60,23 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.login', {
+  .state('login', {
     url: '/login',
-    views: {
-      'tab7': {
-        templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
-      }
-    }
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
   })
 
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
+    controller: 'loginCtrl',
     abstract:true
   })
 
+
   
 
-$urlRouterProvider.otherwise('/page1/arsenalSchedule')
+$urlRouterProvider.otherwise('/login')
 
   
 

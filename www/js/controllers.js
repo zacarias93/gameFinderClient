@@ -59,7 +59,7 @@ function ($scope, $http, $state) {
 		"username": '',
 		"password": ''
 	}
-
+	
 	$scope.message = "";
 
 	$scope.login = function() {

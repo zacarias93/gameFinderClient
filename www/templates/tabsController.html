@@ -14,10 +14,6 @@
 
     <ion-tabs class="tabs-stable tabs-icon-top" id="tabsController-tabs1">
 
-        <ion-tab title="Login" icon="ion-ios-cloud" href="#/page1/login" id="tabsController-tab7">
-            <ion-nav-view name="tab7"></ion-nav-view>
-        </ion-tab>
-
         <ion-tab title="Top 5" icon="ion-ios-football-outline" href="#/page1/Teams" id="tabsController-tab1" class="List">
             <ion-nav-view name="tab1"></ion-nav-view>
         </ion-tab>
@@ -38,6 +34,7 @@
             <ion-nav-view name="tab6"></ion-nav-view>
         </ion-tab>
 
+
     </ion-tabs>
 
     </ion-side-menu-content>
@@ -49,22 +46,24 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+
+        <ion-item menu-close href="#/page1/login">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
+
+        <ion-item menu-close href="#/page1/searchSchedule">
           Search
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+
+        <ion-item menu-close href="#/page1/settings">
           Settings
         </ion-item>
+
       </ion-list>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
+
 
 
 
