@@ -9,6 +9,10 @@
               <input type="password" placeholder="Password" ng-model="data.password">
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="login()">Login</button>
+      <button class="button button-block positive" ng-click="login()">Login</button>
+      <button class="button button-block button-calm" ng-click="newUser()">New User</button>
+      <div align="center">
+        <h4> {{message}} </h4>
+      </div>
   </ion-content>
 </ion-view>
