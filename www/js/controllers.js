@@ -120,10 +120,44 @@ $scope.newUser = function() {
 
 function ($scope, $http, $state) {
 
-	$scope.newUser = {};
+	$scope.newUser = {
+		"userName" : '',
+		"password" : '',
+		"email" : '',
+		"cell" : ''
+	}
+	
 
 	$scope.backToLogin = function() {
 		$state.transitionTo("login");
+	}
+
+	$scope.submitNewUser = function() {
+		var user = {
+			"userName" : $scope.newUser.userName ,
+			"password" : $scope.newUser.password ,
+			"email" : $scope.newUser.email ,
+			"cell" : $scope.newUser.cell
+		}
+
+
+		$scope.newUser.userName = '';
+		$scope.newUser.password = '';
+		$scope.newUser.email = '';
+		$scope.newUser.cell = '';
+
+		console.log(user);
+		console.log($scope.newUser);
+
+
+
+	// $http.post('localhost:8080/')
+	// .then(function (response) {
+	// console.log(response);
+
+// })
+
+
 	}
 
 
