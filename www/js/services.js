@@ -14,6 +14,7 @@ angular.module('app.services', [])
 
     var setUser = function(object) {
         user = object;
+        console.log(user);
     }
 
     return {

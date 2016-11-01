@@ -50,9 +50,8 @@ $http.get('http://api.football-data.org/v1/teams/81/fixtures')
 
 .controller('loginCtrl', ['$scope', '$http', '$state', 'userService',  
 
-
 function ($scope, $http, $state, userService) {
-	
+
 	var password = '';
 
 	$scope.data = {
@@ -161,17 +160,19 @@ function ($scope, $http, $state) {
 	}
 }])
 
-.controller('settingsCtrl', ['$scope', '$state',  
+.controller('settingsCtrl', ['$scope', '$state', 'userService',  
 
-function ($scope, $state) {
+function ($scope, $state, userService) {
+
+	$scope.user = userService.getUser();
 
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
-
-			console.log($scope.data);
-
 	}
 
+	$scope.setUser = function() {
+		$scope.user = userService.getUser();
+	}
 
 
 }])

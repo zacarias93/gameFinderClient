@@ -6,6 +6,30 @@
     <button ion-button small ng-click="backToMain()" ion-button round class="button button-calm">
         Back
     </button>
+    
+    <ion-list>
+        <ion-item >
+            <b>Name:</b> {{user.userName}} 
+        </ion-item>
+
+        <ion-item >
+            <b> E-mail: </b> {{user.email}}
+        </ion-item>
+
+        <ion-item >
+           <b> Cell: </b> {{user.phoneNum}}
+        </ion-item>
+    </ion-list>
+
+<center>
+    <button ion-button small ng-click="setUser()" ion-button round class="button button-calm">
+        Refresh
+    </button>
+</center>
+
+    
+
+
 
 
         
