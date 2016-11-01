@@ -14,6 +14,18 @@ angular.module('app.routes', [])
     controller: 'loginCtrl'
   })
 
+    .state('settings', {
+    url: '/settings',
+    templateUrl: 'templates/settings.html',
+    controller: 'settingsCtrl'
+  })
+
+  .state('newUser', {
+    url: '/newUser',
+    templateUrl: 'templates/newUser.html',
+    controller: 'newUserCtrl'
+  })
+
       .state('menu.teams', {
     url: '/Teams',
     views: {
@@ -62,18 +74,6 @@ angular.module('app.routes', [])
         controller: 'searchCtrl'
       }
     }
-  })
-
-  .state('settings', {
-    url: '/settings',
-    templateUrl: 'templates/settings.html',
-    controller: 'loginCtrl'
-  })
-
-  .state('newUser', {
-    url: '/newUser',
-    templateUrl: 'templates/newUser.html',
-    controller: 'newUserCtrl'
   })
 
   .state('menu', {

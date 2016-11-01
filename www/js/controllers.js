@@ -48,11 +48,11 @@ $http.get('http://api.football-data.org/v1/teams/81/fixtures')
 })
 }])
 
-.controller('loginCtrl', ['$scope', '$http', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $http, $state) {
-	console.log($scope.data);
+.controller('loginCtrl', ['$scope', '$http', '$state', 'userService',  
+
+
+function ($scope, $http, $state, userService) {
+	
 	var password = '';
 
 	$scope.data = {
@@ -67,6 +67,7 @@ function ($scope, $http, $state) {
 		$http.get(url)
 		.then(function(response) {
 			console.log(response);
+			userService.setUser(response.data);
 			if(response.data.userName === $scope.data.username  && response.data.password === $scope.data.password) {
 			console.log("tis true!!");
 			$scope.message= '';
@@ -83,15 +84,15 @@ function ($scope, $http, $state) {
 		}
 		)
 	}
+
 	$scope.newUser = function() {
 		$state.transitionTo("newUser");
 	}
 }])
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.controller('searchCtrl', ['$scope', '$http',  
 
-.controller('searchCtrl', ['$scope', '$http',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {
 $scope.games = [];
 
@@ -116,6 +117,7 @@ $scope.newUser = function() {
 }
 }])
 
+//~~~~~~~~~~~~~~~~
 .controller('newUserCtrl', ['$scope', '$http', '$state', 
 
 function ($scope, $http, $state) {
@@ -156,11 +158,28 @@ function ($scope, $http, $state) {
 	// console.log(response);
 
 // })
+	}
+}])
 
+.controller('settingsCtrl', ['$scope', '$state',  
+
+function ($scope, $state) {
+
+	$scope.backToMain = function() {
+		$state.transitionTo("menu.teams");
+
+			console.log($scope.data);
 
 	}
 
 
-	
+
 }])
+
+
+
+
+
+
+
 
