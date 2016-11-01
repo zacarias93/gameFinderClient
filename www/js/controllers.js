@@ -60,6 +60,12 @@ function ($scope, $http, $state, userService) {
 	}
 	$scope.message = "";
 
+	 var clearData = function() {
+		$scope.data.username = '';
+		$scope.data.password = '';
+		$scope.message= '';
+	}
+
 	$scope.login = function() {
 		console.log($scope.data);
 		var url = 'http://localhost:8080/findByEmail/' + $scope.data.username;
@@ -69,13 +75,12 @@ function ($scope, $http, $state, userService) {
 			userService.setUser(response.data);
 			if(response.data.userName === $scope.data.username  && response.data.password === $scope.data.password) {
 			console.log("tis true!!");
-			$scope.message= '';
+			clearData();	
 			$state.transitionTo("menu.teams");	
-			$scope.data.username = '';
-			$scope.data.password = '';
 		}
 		else {
 			console.log("tis false!!");
+			clearData();
 			$scope.message = "Wrong Username or Password."
 		}
 		}, function(response) {
@@ -131,7 +136,6 @@ function ($scope, $http, $state) {
 
 	$scope.message = '';
 	
-
 	$scope.backToLogin = function() {
 		$state.transitionTo("login");
 	}
@@ -142,8 +146,10 @@ function ($scope, $http, $state) {
 
 		$http.post('http://localhost:8080//create' , $scope.user)
 	    .then(function (response) {
-		console.log(response.data.message);
+		$scope.message = response.data.message;
 	    })
+	}, function() {
+		$scope.message = "Sorry there was a server error.";
 	}
 }])
 
@@ -156,7 +162,6 @@ function ($scope, $state, userService) {
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
 	}
-
 	$scope.setUser = function() {
 		$scope.user = userService.getUser();
 	}
