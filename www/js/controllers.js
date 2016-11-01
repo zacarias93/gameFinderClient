@@ -121,7 +121,7 @@ $scope.newUser = function() {
 
 function ($scope, $http, $state) {
 
-	$scope.newUser = {
+	$scope.user = {
 		"userName" : '',
 		"password" : '',
 		"email" : '',
@@ -134,29 +134,14 @@ function ($scope, $http, $state) {
 	}
 
 	$scope.submitNewUser = function() {
-		var user = {
-			"userName" : $scope.newUser.userName ,
-			"password" : $scope.newUser.password ,
-			"email" : $scope.newUser.email ,
-			"cell" : $scope.newUser.cell
-		}
+		
+		console.log($scope.user);
 
+		// $http.post('localhost:8080/')
+		// .then(function (response) {
+		// console.log(response);
 
-		$scope.newUser.userName = '';
-		$scope.newUser.password = '';
-		$scope.newUser.email = '';
-		$scope.newUser.cell = '';
-
-		console.log(user);
-		console.log($scope.newUser);
-
-
-
-	// $http.post('localhost:8080/')
-	// .then(function (response) {
-	// console.log(response);
-
-// })
+		// })
 	}
 }])
 
@@ -173,8 +158,6 @@ function ($scope, $state, userService) {
 	$scope.setUser = function() {
 		$scope.user = userService.getUser();
 	}
-
-
 }])
 
 
