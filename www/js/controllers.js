@@ -72,12 +72,17 @@ function ($scope, $http, $state) {
 			console.log("tis true!!");
 			$scope.message= '';
 			$state.transitionTo("menu.teams");	
+			$scope.data.username = '';
+			$scope.data.password = '';
 		}
 		else {
 			console.log("tis false!!");
 			$scope.message = "Wrong Username or Password."
 		}
-		})	
+		}, function(response) {
+			$scope.message = "Something went terribly wrong.";
+		}
+		)
 	}
 
 	$scope.newUser = function() {
