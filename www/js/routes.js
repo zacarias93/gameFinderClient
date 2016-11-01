@@ -15,9 +15,10 @@ angular.module('app.routes', [])
   })
 
     .state('settings', {
-    url: '/settings',
-    templateUrl: 'templates/settings.html',
-    controller: 'settingsCtrl'
+      cache: false,
+      url: '/settings',
+      templateUrl: 'templates/settings.html',
+      controller: 'settingsCtrl'
   })
 
   .state('newUser', {

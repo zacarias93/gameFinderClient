@@ -102,6 +102,7 @@ $scope.team = {
 $scope.displayTeam = {
 	teamName:''
 };
+
 $http.get('http://api.football-data.org/v1/competitions/426/fixtures')
 	.then(function (response) {
 	console.log(response.data);
@@ -125,8 +126,10 @@ function ($scope, $http, $state) {
 		"userName" : '',
 		"password" : '',
 		"email" : '',
-		"cell" : ''
+		"phoneNum" : ''
 	}
+
+	$scope.message = '';
 	
 
 	$scope.backToLogin = function() {
@@ -137,11 +140,10 @@ function ($scope, $http, $state) {
 		
 		console.log($scope.user);
 
-		// $http.post('localhost:8080/')
-		// .then(function (response) {
-		// console.log(response);
-
-		// })
+		$http.post('http://localhost:8080//create' , $scope.user)
+	    .then(function (response) {
+		console.log(response.data.message);
+	    })
 	}
 }])
 
@@ -150,7 +152,7 @@ function ($scope, $http, $state) {
 function ($scope, $state, userService) {
 
 	$scope.user = userService.getUser();
-
+	
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
 	}

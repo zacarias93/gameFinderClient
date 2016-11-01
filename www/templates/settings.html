@@ -1,6 +1,6 @@
 
 
-<ion-view title="Settings" >
+<ion-view title="Settings" ng-init="setUser()" >
     <ion-content padding="true" class="has-header">
         
     <button ion-button small ng-click="backToMain()" ion-button round class="button button-calm">
@@ -21,11 +21,7 @@
         </ion-item>
     </ion-list>
 
-<center>
-    <button ion-button small ng-click="setUser()" ion-button round class="button button-calm">
-        Refresh
-    </button>
-</center>
+
 
     
 
