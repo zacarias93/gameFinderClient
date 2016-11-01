@@ -70,6 +70,12 @@ angular.module('app.routes', [])
     controller: 'loginCtrl'
   })
 
+  .state('newUser', {
+    url: '/newUser',
+    templateUrl: 'templates/newUser.html',
+    controller: 'newUserCtrl'
+  })
+
   .state('menu', {
     url: '/home',
     templateUrl: 'templates/menu.html',
