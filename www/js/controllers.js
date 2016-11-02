@@ -118,6 +118,8 @@ $scope.displayTeam = {
 };
 
 $scope.searchForTeam = function() {
+	$scope.gamesToDisplay = [];
+
 	$scope.displayTeam.teamName = $scope.teamToSearch.teamName;
 	console.log($scope.displayTeam.teamName);
 
