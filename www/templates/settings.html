@@ -19,15 +19,25 @@
         <ion-item >
            <b> Cell: </b> {{user.phoneNum}}
         </ion-item>
+
+        <ion-item >
+           <b> Favorite Team: </b> {{user.favoriteTeam}}
+        </ion-item>
     </ion-list>
 
-<div class="list">
+     <div class = "button button-block padding"></div>
 
-  <label class="item item-input item-select" >
-    <div class="input-label">
-      Favorite Team
-    </div>
-    <select ng-model="selectedTeam">
+<div align="center">
+    <ion-list>
+        <ion-item >
+            <b>Set Favorite Team</b> 
+        </ion-item>
+    </ion-list>
+
+ <div class = "button button-block padding"></div>
+
+
+    <select id="selectTeam">
       <option ng-selected="true">Arsenal FC</option>
       <option>Hull City FC</option>
       <option>Leicester City FC</option>
@@ -44,7 +54,9 @@
       <option>Chelsea FC</option>
       <option>West Ham United FC</option>
     </select>
-  </label>
+</div>
+
+ <div class = "button button-block padding"></div>
 
 <div align="center">
   <button ion-button small ng-click="setTeam()" ion-button round class="button button-calm">

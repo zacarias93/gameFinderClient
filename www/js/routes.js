@@ -79,6 +79,7 @@ angular.module('app.routes', [])
 
   .state('menu.favorite', {
     url: '/favorite',
+    cache: false,
     views: {
       'tab7': {
         templateUrl: 'templates/favorite.html',

@@ -59,19 +59,16 @@ function ($scope, $http, $state, userService) {
 	}
 
 	$scope.login = function() {
-		console.log($scope.data);
 		var url = 'http://localhost:8080/findByEmail/' + $scope.data.username;
 		$http.get(url)
 		.then(function(response) {
 			console.log(response);
 			userService.setUser(response.data);
 			if(response.data.userName === $scope.data.username  && response.data.password === $scope.data.password) {
-			console.log("tis true!!");
 			clearData();	
 			$state.transitionTo("menu.teams");	
 		}
 		else {
-			console.log("tis false!!");
 			clearData();
 			$scope.message = "Wrong Username or Password."
 		}
@@ -86,17 +83,28 @@ function ($scope, $http, $state, userService) {
 	}
 }])
 
-.controller('favoriteCtrl', ['$scope', '$http', 
-function ($scope, $http) {
-$scope.games = [];
-$scope.gamesToDisplay = [];
+.controller('favoriteCtrl', function($scope, $http, userService) {
 
-$http.get('http://api.football-data.org/v1/teams/5/fixtures')
-.then(function (response) {
-	console.log(response);
+	$scope.gamesToDisplay = [];
+
+	$scope.teamName = '';
+	$scope.teamName = userService.getUser().favoriteTeam;
+
+	$http.get('http://api.football-data.org/v1/competitions/426/fixtures')
+	.then(function (response) {
 	$scope.games = response.data;
+	var count = response.data.count;
+
+	for(var i=0; i<count; i++) {
+		if($scope.games.fixtures[i].homeTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+		}
+		else if ($scope.games.fixtures[i].awayTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+		}
+	}
+	})
 })
-}])
 
 //~~~~~~~~~~~~SEARCH~~~~~~~~~~~~~~~~~	
 .controller('searchCtrl', ['$scope', '$http', '$window',   
@@ -167,8 +175,9 @@ function ($scope, $http, $state) {
 		
 		console.log($scope.user);
 
-		$http.post('http://localhost:8080//create' , $scope.user)
+		$http.post('http://localhost:8080/create' , $scope.user)
 	    .then(function (response) {
+		
 		$scope.message = response.data.message;
 	    })
 	}, function() {
@@ -176,15 +185,8 @@ function ($scope, $http, $state) {
 	}
 }])
 
-.controller('settingsCtrl', ['$scope', '$state', 'userService',  
-
-function ($scope, $state, userService) {
-
-	$scope.selectedTeam = {};
-
-	var selectedTeam = $scope.selectedTeam;
-	console.log($scope.selectedTeam);
-
+.controller('settingsCtrl', ['$scope', '$state', 'userService', '$http',  
+function ($scope, $state, userService, $http) {
 
 	$scope.user = userService.getUser();
 	
@@ -196,10 +198,15 @@ function ($scope, $state, userService) {
 	}
 
 	$scope.setTeam = function() {
-		selectedTeam = $scope.selectedTeam;
-		console.log(selectedTeam);
-	}
+		var data = document.getElementById("selectTeam");
+		var team = data.options[data.selectedIndex].text;
+		$scope.user.favoriteTeam = team;
 
+		$http.put('http://localhost:8080/update' , $scope.user)
+		.then(function(response) {
+			console.log(response);
+		})
+	}
 }])
 
 
