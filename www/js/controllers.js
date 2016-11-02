@@ -141,7 +141,9 @@ function ($scope, $http, $state) {
 		"password" : '',
 		"email" : '',
 		"phoneNum" : '',
-		"favoriteTeam" : ''
+		"favoriteTeam" : '',
+		"league" : '',
+		"leagueURL" : ''
 	}
 	$scope.message = '';
 
@@ -166,6 +168,11 @@ function ($scope, $http, $state) {
 function ($scope, $state, userService, $http) {
 
 	$scope.user = userService.getUser();
+	$scope.teamNames = [];
+
+	$scope.setGames = function() {
+
+	}
 	
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
@@ -178,12 +185,44 @@ function ($scope, $state, userService, $http) {
 		var data = document.getElementById("selectTeam");
 		var team = data.options[data.selectedIndex].text;
 		$scope.user.favoriteTeam = team;
+	}
 
+	$scope.setLeague = function() {
+		var data = document.getElementById("selectLeague");
+		var league = data.options[data.selectedIndex].text;
+		$scope.user.league = league;
+		$scope.setURL();
+	}
+
+	$scope.setURL = function() {
+		if($scope.user.league == 'English Premier League') {
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/426/fixtures';
+		}
+		if($scope.user.league == 'Bundesliga') {
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/424/fixtures';
+		}
+		if($scope.user.league == 'Primera Division') {
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/436/fixtures';
+		}
+	}
+
+	$scope.updateUser = function() {
 		$http.put('http://localhost:8080/update' , $scope.user)
 		.then(function(response) {
 			console.log(response);
 		})
 	}
+
+	
+
+	// for(var i=0; i<count; i++) {
+	// 	if($scope.games.fixtures[i].homeTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+	// 		$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+	// 	}
+	// 	else if ($scope.games.fixtures[i].awayTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+	// 		$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+	// 	}
+	// }
 }])
 
 

@@ -11,57 +11,75 @@
         <ion-item >
             <b>Name:</b> {{user.userName}} 
         </ion-item>
-
         <ion-item >
             <b> E-mail: </b> {{user.email}}
         </ion-item>
-
         <ion-item >
            <b> Cell: </b> {{user.phoneNum}}
         </ion-item>
-
+        <ion-item >
+           <b> League:  </b> {{user.league}}
+        </ion-item>
         <ion-item >
            <b> Favorite Team: </b> {{user.favoriteTeam}}
         </ion-item>
     </ion-list>
 
-     <div class = "button button-block padding"></div>
+    <div class = "button button-block padding"></div>
 
-<div align="center">
+<div align="left">
     <ion-list>
         <ion-item >
-            <b>Set Favorite Team</b> 
+            <b>Choose League</b> 
+            <span class="item-note">
+                <select id="selectLeague">
+                    <option ng-selected="true">English Premier League</option>
+                    <option>Bundesliga</option>
+                    <option>Primera Division</option>
+                </select>
+            </span>
         </ion-item>
     </ion-list>
 
- <div class = "button button-block padding"></div>
-
-
-    <select id="selectTeam">
-      <option ng-selected="true">Arsenal FC</option>
-      <option>Hull City FC</option>
-      <option>Leicester City FC</option>
-      <option>Southampton FC</option>
-      <option>Watford FC</option>
-      <option>Middlesbrough FC</option>
-      <option>Stoke City FC</option>
-      <option>Everton FC</option>
-      <option>Tottenham Hotspur FC</option>
-      <option>Swansea City FC</option>
-      <option>Manchester City FC</option>
-      <option>Manchester United FC</option>
-      <option>Liverpool FC</option>
-      <option>Chelsea FC</option>
-      <option>West Ham United FC</option>
-    </select>
+<div align="left">
+    <ion-list>
+        <ion-item >
+            <b>Set Favorite Team</b> 
+                <span class="item-note">
+                    <select id="selectTeam">
+                    <option ng-selected="true">Arsenal FC</option>
+                    <option>Hull City FC</option>
+                    <option>Leicester City FC</option>
+                    <option>Southampton FC</option>
+                    <option>Watford FC</option>
+                    <option>Middlesbrough FC</option>
+                    <option>Stoke City FC</option>
+                    <option>Everton FC</option>
+                    <option>Tottenham Hotspur FC</option>
+                    <option>Swansea City FC</option>
+                    <option>Manchester City FC</option>
+                    <option>Manchester United FC</option>
+                    <option>Liverpool FC</option>
+                    <option>Chelsea FC</option>
+                    <option>West Ham United FC</option>
+                    </select>
+                </span>
+        </ion-item>
+    </ion-list>
 </div>
 
  <div class = "button button-block padding"></div>
 
 <div align="center">
+  <button ion-button small ng-click="setLeague()" ion-button round class="button button-calm">
+        Update League
+  </button>
   <button ion-button small ng-click="setTeam()" ion-button round class="button button-calm">
         Update Team
-    </button>
+  </button>
+  <button ion-button small ng-click="updateUser()" ion-button round class="button button-calm">
+        Update Team
+  </button>
 </div>
 
 </div>
