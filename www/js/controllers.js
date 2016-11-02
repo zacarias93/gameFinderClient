@@ -10,36 +10,8 @@ $http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
 	$scope.teams = response.data.standing
 })
 }])
-   
-.controller('bayernCtrl', ['$scope', '$http', 
-function ($scope, $http) {
-$scope.games = [];
-$http.get('http://api.football-data.org/v1/teams/5/fixtures')
-.then(function (response) {
-	console.log(response);
-	$scope.games = response.data;
-})
-}])
       
-.controller('arsenalCtrl', ['$scope', '$http', 
-function ($scope, $http) {
-$scope.games = [];
-$http.get('http://api.football-data.org/v1/teams/57/fixtures')
-.then(function (response) {
-	console.log(response);
-	$scope.games = response.data;
-})
-}])
 
-.controller('barcelonaCtrl', ['$scope', '$http', 
-function ($scope, $http) {
-$scope.games = [];
-$http.get('http://api.football-data.org/v1/teams/81/fixtures')
-.then(function (response) {
-	console.log(response);
-	$scope.games = response.data;
-})
-}])
 
 .controller('loginCtrl', ['$scope', '$http', '$state', 'userService',  
 function ($scope, $http, $state, userService) {
@@ -82,6 +54,11 @@ function ($scope, $http, $state, userService) {
 		$state.transitionTo("newUser");
 	}
 }])
+
+.controller('mapCtrl', function($scope, $http, userService) {
+
+
+})
 
 .controller('favoriteCtrl', function($scope, $http, userService) {
 
@@ -216,3 +193,27 @@ function ($scope, $state, userService, $http) {
 
 
 
+
+
+
+
+
+// .controller('arsenalCtrl', ['$scope', '$http', 
+// function ($scope, $http) {
+// $scope.games = [];
+// $http.get('http://api.football-data.org/v1/teams/57/fixtures')
+// .then(function (response) {
+// 	console.log(response);
+// 	$scope.games = response.data;
+// })
+// }])
+
+// .controller('barcelonaCtrl', ['$scope', '$http', 
+// function ($scope, $http) {
+// $scope.games = [];
+// $http.get('http://api.football-data.org/v1/teams/81/fixtures')
+// .then(function (response) {
+// 	console.log(response);
+// 	$scope.games = response.data;
+// })
+// }])

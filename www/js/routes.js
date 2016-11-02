@@ -37,35 +37,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.bayernSchedule', {
-    url: '/bayernSchedule',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/bayern.html',
-        controller: 'bayernCtrl'
-      }
-    }
-  })
 
-  .state('menu.arsenalSchedule', {
-    url: '/arsenalSchedule',
-    views: {
-      'tab4': {
-        templateUrl: 'templates/arsenal.html',
-        controller: 'arsenalCtrl'
-      }
-    }
-  })
-
-  .state('menu.barcelonaSchedule', {
-    url: '/barcelonaSchedule',
-    views: {
-      'tab5': {
-        templateUrl: 'templates/barcelona.html',
-        controller: 'barcelonaCtrl'
-      }
-    }
-  })
 
   .state('menu.searchSchedule', {
     url: '/searchSchedule',
@@ -77,11 +49,22 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.map', {
+    url: '/map',
+    cache: false,
+    views: {
+      'tab7': {
+        templateUrl: 'templates/map.html',
+        controller: 'mapCtrl'
+      }
+    }
+  })
+
   .state('menu.favorite', {
     url: '/favorite',
     cache: false,
     views: {
-      'tab7': {
+      'tab2': {
         templateUrl: 'templates/favorite.html',
         controller: 'favoriteCtrl'
       }
@@ -98,3 +81,31 @@ angular.module('app.routes', [])
 $urlRouterProvider.otherwise('/login')
 
 });
+
+
+
+
+
+
+
+
+
+  // .state('menu.arsenalSchedule', {
+  //   url: '/arsenalSchedule',
+  //   views: {
+  //     'tab4': {
+  //       templateUrl: 'templates/arsenal.html',
+  //       controller: 'arsenalCtrl'
+  //     }
+  //   }
+  // })
+
+  // .state('menu.barcelonaSchedule', {
+  //   url: '/barcelonaSchedule',
+  //   views: {
+  //     'tab5': {
+  //       templateUrl: 'templates/barcelona.html',
+  //       controller: 'barcelonaCtrl'
+  //     }
+  //   }
+  // })
