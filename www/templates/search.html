@@ -3,28 +3,32 @@
 
         <div class="item item-input-inset">
             <label class ="item-input-wrapper">
-                <input type="text" placeholder="enter team" ng-model="team.teamName">
+                <input type="text" placeholder="enter team" ng-model="teamToSearch.teamName">
             </label>
-            <button class="button button-balanced" on-tap="searchForTeam()">
+            <button ion-button small class="button button-calm" on-tap="searchForTeam()">
             Search
             </button>
+            
+
         </div>
             
 
-        <ion-list id="schedule-list1" ng-repeat="game in games['fixtures'] | filter: { status: 'SCHEDULED' } | filter: { homeTeamName: displayTeam.teamName } "  ng-if="$index<3"> 
+        <ion-list id="schedule-list1" ng-repeat="game in gamesToDisplay"  ng-if="$index<3"> 
             <ion-item class="dark" id="schedule-list-item2"  return false;">
 
                     <div style="float:right">
                         <span>{{game.date | date:'short'}}</span>
                     </div>
                     <div style="float:left">
-                        <span class="input-label">{{game["homeTeamName"]}}</span>
+                        <span class="input-label">{{game.homeTeamName}}</span>
 
                         <p align="left"> vs </p> 
-                        <span class="input-label">{{game["awayTeamName"]}}</span>
+                        <span class="input-label">{{game.awayTeamName}}</span>
                     </div>
             </ion-item>
         </ion-list>
+
+
 
 
 
@@ -32,5 +36,14 @@
                 <img src="https://www.bestsmartdns.com/file/2015/08/Barclays-Premier-League.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
             </div>
         </div>
+
+        <div class = "button button-block padding"></div>
+
+        <div align="center">
+            <button ion-button large class="button button-block button-calm" on-tap="getHelp()">       
+                Help
+            </button>
+        </div>
+
     </ion-content>
 </ion-view>

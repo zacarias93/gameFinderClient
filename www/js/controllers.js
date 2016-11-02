@@ -1,8 +1,7 @@
+
 angular.module('app.controllers', [])
   
-.controller('teamsCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('teamsCtrl', ['$scope', '$http', 
 function ($scope, $http) {
 $scope.teams = [];
 $http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
@@ -12,9 +11,7 @@ $http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
 })
 }])
    
-.controller('bayernCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('bayernCtrl', ['$scope', '$http', 
 function ($scope, $http) {
 $scope.games = [];
 $http.get('http://api.football-data.org/v1/teams/5/fixtures')
@@ -24,9 +21,7 @@ $http.get('http://api.football-data.org/v1/teams/5/fixtures')
 })
 }])
       
-.controller('arsenalCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('arsenalCtrl', ['$scope', '$http', 
 function ($scope, $http) {
 $scope.games = [];
 $http.get('http://api.football-data.org/v1/teams/57/fixtures')
@@ -36,9 +31,7 @@ $http.get('http://api.football-data.org/v1/teams/57/fixtures')
 })
 }])
 
-.controller('barcelonaCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('barcelonaCtrl', ['$scope', '$http', 
 function ($scope, $http) {
 $scope.games = [];
 $http.get('http://api.football-data.org/v1/teams/81/fixtures')
@@ -49,7 +42,6 @@ $http.get('http://api.football-data.org/v1/teams/81/fixtures')
 }])
 
 .controller('loginCtrl', ['$scope', '$http', '$state', 'userService',  
-
 function ($scope, $http, $state, userService) {
 
 	var password = '';
@@ -94,13 +86,30 @@ function ($scope, $http, $state, userService) {
 	}
 }])
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.controller('searchCtrl', ['$scope', '$http',  
+//~~~~~~~~~~~~SEARCH~~~~~~~~~~~~~~~~~	
 
-function ($scope, $http) {
+.controller('searchCtrl', ['$scope', '$http', '$window',   
+function ($scope, $http, $window) {
 $scope.games = [];
+$scope.gamesToDisplay = [];
 
-$scope.team = {
+$scope.example = {
+	"1" : 'Arsenal FC',
+	"2" : 'Hull City FC',
+	"3" : 'Manchester City FC',
+	"4" : 'Tottenham Hotspur FC',
+	"5" : 'Chelsea FC'
+};
+
+$scope.getHelp = function () {
+	var message = 'You can use this features to search for teams! \n\nHere are some examples to search for: \n \n';
+	for(var i=1; i<6; i++) {
+		message += i + ": " + $scope.example[i] + "\n";
+	}
+	$window.alert(message);
+}
+
+$scope.teamToSearch = {
 	teamName:''
 };
 
@@ -108,25 +117,31 @@ $scope.displayTeam = {
 	teamName:''
 };
 
-$http.get('http://api.football-data.org/v1/competitions/426/fixtures')
+$scope.searchForTeam = function() {
+	$scope.displayTeam.teamName = $scope.teamToSearch.teamName;
+	console.log($scope.displayTeam.teamName);
+
+	$http.get('http://api.football-data.org/v1/competitions/426/fixtures')
 	.then(function (response) {
 	console.log(response.data);
 	$scope.games = response.data;
+
+	for(var i=0; i<380; i++) {
+		if($scope.games.fixtures[i].homeTeamName == $scope.teamToSearch.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+		}
+		else if ($scope.games.fixtures[i].awayTeamName == $scope.teamToSearch.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+		}
+	}
+	console.log($scope.gamesToDisplay);
 })
-$scope.searchForTeam = function() {
-	$scope.displayTeam.teamName = $scope.team.teamName;
 }
 
-$scope.newUser = function() {
-	$state.transitionTo("newUser");
-}
 }])
 
-//~~~~~~~~~~~~~~~~
 .controller('newUserCtrl', ['$scope', '$http', '$state', 
-
 function ($scope, $http, $state) {
-
 	$scope.user = {
 		"userName" : '',
 		"password" : '',
@@ -135,7 +150,7 @@ function ($scope, $http, $state) {
 	}
 
 	$scope.message = '';
-	
+
 	$scope.backToLogin = function() {
 		$state.transitionTo("login");
 	}
