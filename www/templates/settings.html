@@ -21,7 +21,7 @@
            <b> League:  </b> {{user.league}}
         </ion-item>
         <ion-item >
-           <b> Favorite Team: </b> {{user.favoriteTeam}}
+           <b> Team: </b> {{user.team}}
         </ion-item>
     </ion-list>
 
@@ -37,9 +37,16 @@
                     <option>Bundesliga</option>
                     <option>Primera Division</option>
                 </select>
+                
             </span>
         </ion-item>
     </ion-list>
+
+<!--<div align="center">
+    <button ion-button small ng-click="setLeague()"  class="button button-calm">
+        Update League
+  </button>
+</div>-->
 
 <div align="left">
     <ion-list>

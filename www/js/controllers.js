@@ -31,7 +31,7 @@ function ($scope, $http, $state, userService) {
 	}
 
 	$scope.login = function() {
-		var url = 'http://localhost:8080/findByEmail/' + $scope.data.username;
+		var url = 'http://localhost:8080/findByUserName/' + $scope.data.username;
 		$http.get(url)
 		.then(function(response) {
 			console.log(response);
@@ -141,7 +141,7 @@ function ($scope, $http, $state) {
 		"password" : '',
 		"email" : '',
 		"phoneNum" : '',
-		"favoriteTeam" : '',
+		"team" : '',
 		"league" : '',
 		"leagueURL" : ''
 	}
@@ -170,9 +170,10 @@ function ($scope, $state, userService, $http) {
 	$scope.user = userService.getUser();
 	$scope.teamNames = [];
 
-	$scope.setGames = function() {
+	var numTeams;
 
-	}
+
+
 	
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
@@ -184,7 +185,7 @@ function ($scope, $state, userService, $http) {
 	$scope.setTeam = function() {
 		var data = document.getElementById("selectTeam");
 		var team = data.options[data.selectedIndex].text;
-		$scope.user.favoriteTeam = team;
+		$scope.user.team = team;
 	}
 
 	$scope.setLeague = function() {
@@ -196,33 +197,51 @@ function ($scope, $state, userService, $http) {
 
 	$scope.setURL = function() {
 		if($scope.user.league == 'English Premier League') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/426/fixtures';
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/426/';
 		}
 		if($scope.user.league == 'Bundesliga') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/424/fixtures';
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/424/';
 		}
 		if($scope.user.league == 'Primera Division') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/436/fixtures';
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/436/';
 		}
 	}
 
+	$scope.setNames = function() {
+		
+		var url = $scope.user.leagueURL + 'teams';
+		$http.get(url)
+		.then(function(response) {
+			var data = response.data;
+			numTeams = data.count;
+
+		for(var i=0; i<numTeams; i++) {
+			$scope.teamNames.push(data.teams[i].name)
+		}
+
+	    console.log($scope.teamNames);
+		})
+
+
+
+		
+
+	}
+
 	$scope.updateUser = function() {
+
 		$http.put('http://localhost:8080/update' , $scope.user)
 		.then(function(response) {
 			console.log(response);
 		})
+
+		$scope.setNames();
+
 	}
 
 	
 
-	// for(var i=0; i<count; i++) {
-	// 	if($scope.games.fixtures[i].homeTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
-	// 		$scope.gamesToDisplay.push($scope.games.fixtures[i]);
-	// 	}
-	// 	else if ($scope.games.fixtures[i].awayTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
-	// 		$scope.gamesToDisplay.push($scope.games.fixtures[i]);
-	// 	}
-	// }
+
 }])
 
 

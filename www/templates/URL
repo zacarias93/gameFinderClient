@@ -1,8 +1,12 @@
+URL GUIDE:
+    -fixtures
+    -teams
+
 EPL fixtures URL
-http://api.football-data.org/v1/competitions/426/fixtures
+http://api.football-data.org/v1/competitions/426/
 
 Bundesliga fixtures URL
-http://api.football-data.org/v1/competitions/424/fixtures
+http://api.football-data.org/v1/competitions/424/
 
 Primera Division
-http://api.football-data.org/v1/competitions/436/fixtures
+http://api.football-data.org/v1/competitions/436/
