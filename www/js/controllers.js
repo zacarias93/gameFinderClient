@@ -169,11 +169,8 @@ function ($scope, $state, userService, $http) {
 
 	$scope.user = userService.getUser();
 	$scope.teamNames = [];
-
+	$scope.team = '';
 	var numTeams;
-
-
-
 	
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
@@ -200,7 +197,7 @@ function ($scope, $state, userService, $http) {
 			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/426/';
 		}
 		if($scope.user.league == 'Bundesliga') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/424/';
+			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/430/';
 		}
 		if($scope.user.league == 'Primera Division') {
 			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/436/';
@@ -214,18 +211,12 @@ function ($scope, $state, userService, $http) {
 		.then(function(response) {
 			var data = response.data;
 			numTeams = data.count;
+			console.log(data);
 
 		for(var i=0; i<numTeams; i++) {
 			$scope.teamNames.push(data.teams[i].name)
 		}
-
-	    console.log($scope.teamNames);
 		})
-
-
-
-		
-
 	}
 
 	$scope.updateUser = function() {
@@ -234,13 +225,11 @@ function ($scope, $state, userService, $http) {
 		.then(function(response) {
 			console.log(response);
 		})
-
+		$scope.teamNames = [];
 		$scope.setNames();
-
 	}
 
-	
-
+	$scope.setNames();
 
 }])
 

@@ -51,28 +51,12 @@
 <div align="left">
     <ion-list>
         <ion-item >
-            <b>Set Favorite Team</b> 
-                <span class="item-note">
-                    <select id="selectTeam">
-                    <option ng-selected="true">Arsenal FC</option>
-                    <option>Hull City FC</option>
-                    <option>Leicester City FC</option>
-                    <option>Southampton FC</option>
-                    <option>Watford FC</option>
-                    <option>Middlesbrough FC</option>
-                    <option>Stoke City FC</option>
-                    <option>Everton FC</option>
-                    <option>Tottenham Hotspur FC</option>
-                    <option>Swansea City FC</option>
-                    <option>Manchester City FC</option>
-                    <option>Manchester United FC</option>
-                    <option>Liverpool FC</option>
-                    <option>Chelsea FC</option>
-                    <option>West Ham United FC</option>
-                    </select>
-                </span>
-        </ion-item>
-    </ion-list>
+            <b>Set Team</b> 
+    <span class="item-note">  
+        <select name="repeatSelect" id="repeatSelect" ng-model="team">
+            <option ng-repeat="name in teamNames" value="{{name}}">{{name}}</option>
+        </select>
+    </span>
 </div>
 
  <div class = "button button-block padding"></div>
