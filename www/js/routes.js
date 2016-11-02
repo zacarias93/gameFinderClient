@@ -77,6 +77,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.favorite', {
+    url: '/favorite',
+    views: {
+      'tab7': {
+        templateUrl: 'templates/favorite.html',
+        controller: 'favoriteCtrl'
+      }
+    }
+  })
+
   .state('menu', {
     url: '/home',
     templateUrl: 'templates/menu.html',

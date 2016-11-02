@@ -21,6 +21,40 @@
         </ion-item>
     </ion-list>
 
+<div class="list">
+
+  <label class="item item-input item-select" >
+    <div class="input-label">
+      Favorite Team
+    </div>
+    <select ng-model="selectedTeam">
+      <option ng-selected="true">Arsenal FC</option>
+      <option>Hull City FC</option>
+      <option>Leicester City FC</option>
+      <option>Southampton FC</option>
+      <option>Watford FC</option>
+      <option>Middlesbrough FC</option>
+      <option>Stoke City FC</option>
+      <option>Everton FC</option>
+      <option>Tottenham Hotspur FC</option>
+      <option>Swansea City FC</option>
+      <option>Manchester City FC</option>
+      <option>Manchester United FC</option>
+      <option>Liverpool FC</option>
+      <option>Chelsea FC</option>
+      <option>West Ham United FC</option>
+    </select>
+  </label>
+
+<div align="center">
+  <button ion-button small ng-click="setTeam()" ion-button round class="button button-calm">
+        Update Team
+    </button>
+</div>
+
+</div>
+
+
 
 
     

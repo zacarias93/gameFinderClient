@@ -86,8 +86,19 @@ function ($scope, $http, $state, userService) {
 	}
 }])
 
-//~~~~~~~~~~~~SEARCH~~~~~~~~~~~~~~~~~	
+.controller('favoriteCtrl', ['$scope', '$http', 
+function ($scope, $http) {
+$scope.games = [];
+$scope.gamesToDisplay = [];
 
+$http.get('http://api.football-data.org/v1/teams/5/fixtures')
+.then(function (response) {
+	console.log(response);
+	$scope.games = response.data;
+})
+}])
+
+//~~~~~~~~~~~~SEARCH~~~~~~~~~~~~~~~~~	
 .controller('searchCtrl', ['$scope', '$http', '$window',   
 function ($scope, $http, $window) {
 $scope.games = [];
@@ -108,15 +119,12 @@ $scope.getHelp = function () {
 	}
 	$window.alert(message);
 }
-
 $scope.teamToSearch = {
 	teamName:''
 };
-
 $scope.displayTeam = {
 	teamName:''
 };
-
 $scope.searchForTeam = function() {
 	$scope.gamesToDisplay = [];
 
@@ -139,7 +147,6 @@ $scope.searchForTeam = function() {
 	console.log($scope.gamesToDisplay);
 })
 }
-
 }])
 
 .controller('newUserCtrl', ['$scope', '$http', '$state', 
@@ -148,15 +155,14 @@ function ($scope, $http, $state) {
 		"userName" : '',
 		"password" : '',
 		"email" : '',
-		"phoneNum" : ''
+		"phoneNum" : '',
+		"favoriteTeam" : ''
 	}
-
 	$scope.message = '';
 
 	$scope.backToLogin = function() {
 		$state.transitionTo("login");
 	}
-
 	$scope.submitNewUser = function() {
 		
 		console.log($scope.user);
@@ -174,6 +180,12 @@ function ($scope, $http, $state) {
 
 function ($scope, $state, userService) {
 
+	$scope.selectedTeam = {};
+
+	var selectedTeam = $scope.selectedTeam;
+	console.log($scope.selectedTeam);
+
+
 	$scope.user = userService.getUser();
 	
 	$scope.backToMain = function() {
@@ -182,6 +194,12 @@ function ($scope, $state, userService) {
 	$scope.setUser = function() {
 		$scope.user = userService.getUser();
 	}
+
+	$scope.setTeam = function() {
+		selectedTeam = $scope.selectedTeam;
+		console.log(selectedTeam);
+	}
+
 }])
 
 
