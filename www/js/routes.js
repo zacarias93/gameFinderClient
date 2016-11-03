@@ -50,7 +50,7 @@ angular.module('app.routes', [])
 
   .state('menu.map', {
     url: '/map',
-    cache: false,
+    // cache: false,
     views: {
       'tab7': {
         templateUrl: 'templates/map.html',

@@ -134,6 +134,8 @@ function ($scope, $http, $window) {
 		for(var i=0; i<numTeams; i++) {
 			$scope.teamNames.push(data.teams[i].name)
 		}
+		$scope.teamNames.sort();
+
 		})
 	}
 
@@ -198,22 +200,6 @@ function ($scope, $http, $window) {
 		}
 		}
 	}
-
-// $scope.getHelp = function () {
-// 	var message = 'You can use this features to search for teams! \n\nHere are some examples to search for: \n \n';
-// 	for(var i=1; i<6; i++) {
-// 		message += i + ": " + $scope.example[i] + "\n";
-// 	}
-// 	$window.alert(message);
-// }
-
-// $scope.example = {
-// 	"1" : 'Arsenal FC',
-// 	"2" : 'Hull City FC',
-// 	"3" : 'Manchester City FC',
-// 	"4" : 'Tottenham Hotspur FC',
-// 	"5" : 'Chelsea FC'
-// };
 
 }])
 
@@ -303,6 +289,9 @@ function ($scope, $state, userService, $http) {
 		for(var i=0; i<numTeams; i++) {
 			$scope.teamNames.push(data.teams[i].name)
 		}
+		
+		$scope.teamNames.sort();
+
 		})
 	}
 
@@ -323,30 +312,3 @@ function ($scope, $state, userService, $http) {
 
 
 
-
-
-
-
-
-
-
-
-// .controller('arsenalCtrl', ['$scope', '$http', 
-// function ($scope, $http) {
-// $scope.games = [];
-// $http.get('http://api.football-data.org/v1/teams/57/fixtures')
-// .then(function (response) {
-// 	console.log(response);
-// 	$scope.games = response.data;
-// })
-// }])
-
-// .controller('barcelonaCtrl', ['$scope', '$http', 
-// function ($scope, $http) {
-// $scope.games = [];
-// $http.get('http://api.football-data.org/v1/teams/81/fixtures')
-// .then(function (response) {
-// 	console.log(response);
-// 	$scope.games = response.data;
-// })
-// }])

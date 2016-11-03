@@ -1,4 +1,13 @@
 {
   "name": "ArsenalApp",
-  "app_id": "ec29c5d7"
+  "app_id": "ec29c5d7",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
