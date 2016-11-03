@@ -106,6 +106,14 @@ function ($scope, $http, $window) {
 	var url = '';
 	var count;
 
+	$scope.debug = function() {
+		console.log('$scope.games:' + $scope.games);
+		console.log($scope.gamesToDisplay);
+		console.log($scope.teamNames);
+		console.log($scope.league);
+		console.log(scope.teamName)
+	}
+
 
 
 	$scope.setLeague = function() {
@@ -130,7 +138,7 @@ function ($scope, $http, $window) {
 		for(var i=0; i<numTeams; i++) {
 			$scope.teamNames.push(data.teams[i].name)
 		}
-		console.log($scope.teamNames);
+			$scope.debug();
 		})
 	}
 
@@ -155,6 +163,8 @@ function ($scope, $http, $window) {
 
 	$scope.setGames = function() {
 
+		$scope.games = [];
+
 		var gamesURL = url + 'fixtures';
 
 		$http.get(gamesURL)
@@ -173,6 +183,7 @@ function ($scope, $http, $window) {
 		console.log(count);
 		console.log(teamName);
 		console.log($scope.games);
+		$scope.gamesToDisplay = [];
 
 		for(var i=0; i<count; i++) {
 			if($scope.games.fixtures[i].homeTeamName == teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
@@ -184,10 +195,6 @@ function ($scope, $http, $window) {
 		}
 
 		console.log($scope.gamesToDisplay);
-
-
-
-
 		
 		for(var i=0; i<380; i++) {
 		if($scope.games.fixtures[i].homeTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
