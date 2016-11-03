@@ -42,21 +42,17 @@
         </ion-item>
     </ion-list>
 
-<!--<div align="center">
-    <button ion-button small ng-click="setLeague()"  class="button button-calm">
-        Update League
-  </button>
-</div>-->
-
 <div align="left">
     <ion-list>
         <ion-item >
             <b>Set Team</b> 
-    <span class="item-note">  
-        <select name="repeatSelect" id="repeatSelect" ng-model="team">
-            <option ng-repeat="name in teamNames" value="{{name}}">{{name}}</option>
-        </select>
-    </span>
+                <span class="item-note">  
+                    <select id="selectTeamName" ng-model="team">
+                        <option ng-repeat="name in teamNames" value="{{name}}">{{name}}</option>
+                    </select>
+                </span>
+        </ion-item>
+    </ion-list>
 </div>
 
  <div class = "button button-block padding"></div>
@@ -64,9 +60,6 @@
 <div align="center">
   <button ion-button small ng-click="setLeague()" ion-button round class="button button-calm">
         Update League
-  </button>
-  <button ion-button small ng-click="setTeam()" ion-button round class="button button-calm">
-        Update Team
   </button>
   <button ion-button small ng-click="updateUser()" ion-button round class="button button-calm">
         Update Team

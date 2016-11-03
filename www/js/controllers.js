@@ -64,10 +64,17 @@ function ($scope, $http, $state, userService) {
 
 	$scope.gamesToDisplay = [];
 
-	$scope.teamName = '';
-	$scope.teamName = userService.getUser().favoriteTeam;
+	var user = {};
+	user = userService.getUser();
+	console.log(user);
 
-	$http.get('http://api.football-data.org/v1/competitions/426/fixtures')
+	$scope.teamName = '';
+	$scope.teamName = userService.getUser().team;
+
+	console.log(user.leagueURL);
+	var url = user.leagueURL + '/fixtures';
+
+	$http.get(url)
 	.then(function (response) {
 	$scope.games = response.data;
 	var count = response.data.count;
@@ -86,8 +93,123 @@ function ($scope, $http, $state, userService) {
 //~~~~~~~~~~~~SEARCH~~~~~~~~~~~~~~~~~	
 .controller('searchCtrl', ['$scope', '$http', '$window',   
 function ($scope, $http, $window) {
-$scope.games = [];
-$scope.gamesToDisplay = [];
+
+	$scope.games = [];
+	$scope.gamesToDisplay = [];
+	$scope.teamNames = [];
+
+	$scope.league = '';
+	$scope.teamName = '';
+
+	var teamName = '';
+	var league = '';
+	var url = '';
+	var count;
+
+
+
+	$scope.setLeague = function() {
+		var data = document.getElementById("selectLeague");
+		league = data.options[data.selectedIndex].text;
+		console.log(league);
+		$scope.setURL();
+		$scope.setNames();
+		console.log(url);
+	}
+
+	$scope.setNames = function() {
+		$scope.teamNames = [];
+		var namesURL = url + 'teams';
+
+		$http.get(namesURL)
+		.then(function(response) {
+			var data = response.data;
+			numTeams = data.count;
+			console.log(data);
+
+		for(var i=0; i<numTeams; i++) {
+			$scope.teamNames.push(data.teams[i].name)
+		}
+		console.log($scope.teamNames);
+		})
+	}
+
+	$scope.setURL = function() {
+		if(league == 'English Premier League') {
+			url = 'http://api.football-data.org/v1/competitions/426/';
+		}
+		if(league == 'Bundesliga') {
+			url = 'http://api.football-data.org/v1/competitions/430/';
+		}
+		if(league == 'Primera Division') {
+			url = 'http://api.football-data.org/v1/competitions/436/';
+		}
+	}
+
+	$scope.setTeam = function() {
+			var data = document.getElementById("selectTeamName");
+			teamName = data.options[data.selectedIndex].text;
+			console.log(teamName);
+			$scope.setGames();
+	}
+
+	$scope.setGames = function() {
+
+		var gamesURL = url + 'fixtures';
+
+		$http.get(gamesURL)
+		.then(function (response) {
+		$scope.games = response.data;
+		console.log($scope.games);
+		count = response.data.count;
+		console.log(count);
+		})
+	}
+	
+	
+
+	$scope.displayGames = function() {
+
+		console.log(count);
+		console.log(teamName);
+		console.log($scope.games);
+
+		for(var i=0; i<count; i++) {
+			if($scope.games.fixtures[i].homeTeamName == teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+				$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+			}
+			else if ($scope.games.fixtures[i].awayTeamName == teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+				$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+			}
+		}
+
+		console.log($scope.gamesToDisplay);
+
+
+
+
+		
+		for(var i=0; i<380; i++) {
+		if($scope.games.fixtures[i].homeTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+		}
+		else if ($scope.games.fixtures[i].awayTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
+		}
+		}
+	}
+
+	
+
+
+
+$scope.getHelp = function () {
+	var message = 'You can use this features to search for teams! \n\nHere are some examples to search for: \n \n';
+	for(var i=1; i<6; i++) {
+		message += i + ": " + $scope.example[i] + "\n";
+	}
+	$window.alert(message);
+}
 
 $scope.example = {
 	"1" : 'Arsenal FC',
@@ -97,41 +219,6 @@ $scope.example = {
 	"5" : 'Chelsea FC'
 };
 
-$scope.getHelp = function () {
-	var message = 'You can use this features to search for teams! \n\nHere are some examples to search for: \n \n';
-	for(var i=1; i<6; i++) {
-		message += i + ": " + $scope.example[i] + "\n";
-	}
-	$window.alert(message);
-}
-$scope.teamToSearch = {
-	teamName:''
-};
-$scope.displayTeam = {
-	teamName:''
-};
-$scope.searchForTeam = function() {
-	$scope.gamesToDisplay = [];
-
-	$scope.displayTeam.teamName = $scope.teamToSearch.teamName;
-	console.log($scope.displayTeam.teamName);
-
-	$http.get('http://api.football-data.org/v1/competitions/426/fixtures')
-	.then(function (response) {
-	console.log(response.data);
-	$scope.games = response.data;
-
-	for(var i=0; i<380; i++) {
-		if($scope.games.fixtures[i].homeTeamName == $scope.teamToSearch.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
-			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
-		}
-		else if ($scope.games.fixtures[i].awayTeamName == $scope.teamToSearch.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
-			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
-		}
-	}
-	console.log($scope.gamesToDisplay);
-})
-}
 }])
 
 .controller('newUserCtrl', ['$scope', '$http', '$state', 
@@ -169,8 +256,9 @@ function ($scope, $state, userService, $http) {
 
 	$scope.user = userService.getUser();
 	$scope.teamNames = [];
-	$scope.team = '';
+	// $scope.team = '';
 	var numTeams;
+	var team = $scope.user.team;
 	
 	$scope.backToMain = function() {
 		$state.transitionTo("menu.teams");
@@ -180,7 +268,7 @@ function ($scope, $state, userService, $http) {
 	}
 
 	$scope.setTeam = function() {
-		var data = document.getElementById("selectTeam");
+		var data = document.getElementById("selectTeamName");
 		var team = data.options[data.selectedIndex].text;
 		$scope.user.team = team;
 	}
@@ -190,6 +278,7 @@ function ($scope, $state, userService, $http) {
 		var league = data.options[data.selectedIndex].text;
 		$scope.user.league = league;
 		$scope.setURL();
+		$scope.setNames();
 	}
 
 	$scope.setURL = function() {
@@ -205,8 +294,10 @@ function ($scope, $state, userService, $http) {
 	}
 
 	$scope.setNames = function() {
-		
+
+		$scope.teamNames = [];
 		var url = $scope.user.leagueURL + 'teams';
+
 		$http.get(url)
 		.then(function(response) {
 			var data = response.data;
@@ -221,15 +312,14 @@ function ($scope, $state, userService, $http) {
 
 	$scope.updateUser = function() {
 
+		$scope.setTeam();
+
 		$http.put('http://localhost:8080/update' , $scope.user)
 		.then(function(response) {
 			console.log(response);
 		})
-		$scope.teamNames = [];
-		$scope.setNames();
 	}
 
-	$scope.setNames();
 
 }])
 
