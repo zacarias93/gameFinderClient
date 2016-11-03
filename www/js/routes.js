@@ -27,17 +27,16 @@ angular.module('app.routes', [])
     controller: 'newUserCtrl'
   })
 
-      .state('menu.teams', {
-    url: '/Teams',
+      .state('menu.topFive', {
+    url: '/topFive',
+    cache: false,
     views: {
       'tab1': {
-        templateUrl: 'templates/teams.html',
-        controller: 'teamsCtrl'
+        templateUrl: 'templates/topFive.html',
+        controller: 'topFiveCtrl'
       }
     }
   })
-
-
 
   .state('menu.searchSchedule', {
     url: '/searchSchedule',

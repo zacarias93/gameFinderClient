@@ -1,5 +1,16 @@
 <ion-view title="Favorite" id="page2">
     <ion-content padding="true" class="has-header" >
+
+        <ul class="list">
+            <li class="item">
+                <b>League: </b>
+                <span>{{user.league}}</span>
+            </li>
+            <li class="item">
+                <b>Team: </b>
+                <span>{{user.teamName}}</span>
+            </li>
+        </ul>
         
         <ion-list id="schedule-list1" ng-repeat="game in gamesToDisplay"  ng-if="$index<3"> 
             <ion-item class="dark" id="schedule-list-item2"  return false;">

@@ -1,17 +1,17 @@
 
 angular.module('app.controllers', [])
   
-.controller('teamsCtrl', ['$scope', '$http', 
-function ($scope, $http) {
+.controller('topFiveCtrl', function ($scope, $http, userService) {
 $scope.teams = [];
-$http.get('http://api.football-data.org/v1/competitions/426/leagueTable')
+$scope.user = userService.getUser();
+url = $scope.user.leagueURL + 'leagueTable';
+$http.get(url)
 .then(function(response) {
 	console.log(response);
 	$scope.teams = response.data.standing
 })
-}])
+})
       
-
 
 .controller('loginCtrl', ['$scope', '$http', '$state', 'userService',  
 function ($scope, $http, $state, userService) {
@@ -38,7 +38,7 @@ function ($scope, $http, $state, userService) {
 			userService.setUser(response.data);
 			if(response.data.userName === $scope.data.username  && response.data.password === $scope.data.password) {
 			clearData();	
-			$state.transitionTo("menu.teams");	
+			$state.transitionTo("menu.favorite");	
 		}
 		else {
 			clearData();
@@ -64,15 +64,12 @@ function ($scope, $http, $state, userService) {
 
 	$scope.gamesToDisplay = [];
 
-	var user = {};
-	user = userService.getUser();
-	console.log(user);
+	$scope.user = {};
+	$scope.user = userService.getUser();
+	console.log($scope.user);
 
-	$scope.teamName = '';
-	$scope.teamName = userService.getUser().team;
-
-	console.log(user.leagueURL);
-	var url = user.leagueURL + '/fixtures';
+	console.log($scope.user.leagueURL);
+	var url = $scope.user.leagueURL + '/fixtures';
 
 	$http.get(url)
 	.then(function (response) {
@@ -80,17 +77,16 @@ function ($scope, $http, $state, userService) {
 	var count = response.data.count;
 
 	for(var i=0; i<count; i++) {
-		if($scope.games.fixtures[i].homeTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+		if($scope.games.fixtures[i].homeTeamName == $scope.user.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
 			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
 		}
-		else if ($scope.games.fixtures[i].awayTeamName == $scope.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
+		else if ($scope.games.fixtures[i].awayTeamName == $scope.user.teamName && $scope.games.fixtures[i].status == "SCHEDULED") {
 			$scope.gamesToDisplay.push($scope.games.fixtures[i]);
 		}
 	}
 	})
 })
 
-//~~~~~~~~~~~~SEARCH~~~~~~~~~~~~~~~~~	
 .controller('searchCtrl', ['$scope', '$http', '$window',   
 function ($scope, $http, $window) {
 
@@ -106,13 +102,13 @@ function ($scope, $http, $window) {
 	var url = '';
 	var count;
 
-	$scope.debug = function() {
-		console.log('$scope.games:' + $scope.games);
-		console.log($scope.gamesToDisplay);
-		console.log($scope.teamNames);
-		console.log($scope.league);
-		console.log(scope.teamName)
-	}
+	// $scope.debug = function() {
+	// 	console.log('$scope.games:' + $scope.games);
+	// 	console.log($scope.gamesToDisplay);
+	// 	console.log($scope.teamNames);
+	// 	console.log($scope.league);
+	// 	console.log(scope.teamName)
+	// }
 
 
 
@@ -138,7 +134,6 @@ function ($scope, $http, $window) {
 		for(var i=0; i<numTeams; i++) {
 			$scope.teamNames.push(data.teams[i].name)
 		}
-			$scope.debug();
 		})
 	}
 
@@ -176,8 +171,6 @@ function ($scope, $http, $window) {
 		})
 	}
 	
-	
-
 	$scope.displayGames = function() {
 
 		console.log(count);
@@ -206,25 +199,21 @@ function ($scope, $http, $window) {
 		}
 	}
 
-	
+// $scope.getHelp = function () {
+// 	var message = 'You can use this features to search for teams! \n\nHere are some examples to search for: \n \n';
+// 	for(var i=1; i<6; i++) {
+// 		message += i + ": " + $scope.example[i] + "\n";
+// 	}
+// 	$window.alert(message);
+// }
 
-
-
-$scope.getHelp = function () {
-	var message = 'You can use this features to search for teams! \n\nHere are some examples to search for: \n \n';
-	for(var i=1; i<6; i++) {
-		message += i + ": " + $scope.example[i] + "\n";
-	}
-	$window.alert(message);
-}
-
-$scope.example = {
-	"1" : 'Arsenal FC',
-	"2" : 'Hull City FC',
-	"3" : 'Manchester City FC',
-	"4" : 'Tottenham Hotspur FC',
-	"5" : 'Chelsea FC'
-};
+// $scope.example = {
+// 	"1" : 'Arsenal FC',
+// 	"2" : 'Hull City FC',
+// 	"3" : 'Manchester City FC',
+// 	"4" : 'Tottenham Hotspur FC',
+// 	"5" : 'Chelsea FC'
+// };
 
 }])
 
@@ -235,7 +224,7 @@ function ($scope, $http, $state) {
 		"password" : '',
 		"email" : '',
 		"phoneNum" : '',
-		"team" : '',
+		"teamName" : '',
 		"league" : '',
 		"leagueURL" : ''
 	}
@@ -263,12 +252,11 @@ function ($scope, $state, userService, $http) {
 
 	$scope.user = userService.getUser();
 	$scope.teamNames = [];
-	// $scope.team = '';
 	var numTeams;
 	var team = $scope.user.team;
 	
 	$scope.backToMain = function() {
-		$state.transitionTo("menu.teams");
+		$state.transitionTo("menu.favorite");
 	}
 	$scope.setUser = function() {
 		$scope.user = userService.getUser();
@@ -277,13 +265,14 @@ function ($scope, $state, userService, $http) {
 	$scope.setTeam = function() {
 		var data = document.getElementById("selectTeamName");
 		var team = data.options[data.selectedIndex].text;
-		$scope.user.team = team;
+		$scope.user.teamName = team;
 	}
 
 	$scope.setLeague = function() {
 		var data = document.getElementById("selectLeague");
 		var league = data.options[data.selectedIndex].text;
 		$scope.user.league = league;
+		console.log(league);
 		$scope.setURL();
 		$scope.setNames();
 	}

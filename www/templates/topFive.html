@@ -1,5 +1,15 @@
-<ion-view title="EPL Top 5 " id="page2">
+<ion-view title=" Top 5 " id="page2">
     <ion-content padding="true"  class="has-header"> 
+        <ion-list>
+            <ion-item >
+                <b>League: </b> 
+                    <span>
+                        {{user.league}}
+                    </span>
+            </ion-item>
+        </ion-list>
+
+
             <ion-list id="schedule-list1" ng-repeat="team in teams" ng-if="$index<5">
             <ion-item class="dark" id="schedule-list-item2"  return false;">
                 
