@@ -31,6 +31,7 @@
                 loginVm.response = response;
                 if(loginVm.credentials.password == loginVm.response.password) {
                     clearData();
+                    userService.setUser(loginVm.response);
                     $state.transitionTo("menu.favorite");
                 }
             }, function() {

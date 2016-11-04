@@ -40,7 +40,7 @@
       .state('newUser', {
         url: '/newUser',
         templateUrl: 'templates/newUser.html',
-        controller: 'newUserCtrl'
+        controller: 'newUserController as newUserVm'
       })
 
       
@@ -72,7 +72,8 @@
     views: {
       'tab2': {
         templateUrl: 'templates/favorite.html',
-        controller: 'favoriteCtrl'
+        // controller: 'favoriteCtrl'
+        controller: 'favoriteController as favoriteVm'
       }
     }
   })

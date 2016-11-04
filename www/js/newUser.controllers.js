@@ -10,11 +10,11 @@
         var newUserVm = this;
         
         newUserVm.user = {
-            "userName" : '',
+            "username" : '',
             "password" : '',
             "email" : '',
             "phoneNum" : '',
-            "teamName" : '',
+            "teamname" : '',
             "league" : '',
             "leagueURL" : ''
         }
@@ -23,6 +23,13 @@
 
         newUserVm.submitNewUser = function() {
 
+        var response = userService.createUser(newUserVm.user)
+            .then(function(response) {
+                newUserVm.message = response.message;
+                if(newUserVm.message == "Success!") {
+                    $state.transitionTo("login");
+                }
+            })
         }
 
         activate();

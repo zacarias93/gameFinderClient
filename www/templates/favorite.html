@@ -4,25 +4,25 @@
         <ul class="list">
             <li class="item">
                 <b>League: </b>
-                <span>{{user.league}}</span>
+                <span>{{favoriteVm.user.league}}</span>
             </li>
             <li class="item">
                 <b>Team: </b>
-                <span>{{user.teamName}}</span>
+                <span>{{favoriteVm.user.teamname}}</span>
             </li>
         </ul>
         
-        <ion-list id="schedule-list1" ng-repeat="game in gamesToDisplay"  ng-if="$index<3"> 
+        <ion-list id="schedule-list1" ng-repeat="game in favoriteVm.gamesToDisplay"  ng-if="$index<3"> 
             <ion-item class="dark" id="schedule-list-item2"  return false;">
 
                     <div style="float:right">
                         <span>{{game.date | date:'short'}}</span>
                     </div>
                     <div style="float:left">
-                        <span class="input-label">{{game.homeTeamName}}</span>
+                        <b><span class="input-label">{{game.homeTeamName}}</span></b>
 
                         <p align="left"> vs </p> 
-                        <span class="input-label">{{game.awayTeamName}}</span>
+                        <b><span class="input-label">{{game.awayTeamName}}</span></b>
                     </div>
             </ion-item>
         </ion-list>

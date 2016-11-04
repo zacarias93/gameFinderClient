@@ -4,6 +4,8 @@
   angular.module('app', [
     'ionic',
     'login',
+    'newUser',
+    'favorite',
     'app.controllers',
     'topFive',
     'settings'

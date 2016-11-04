@@ -1,40 +1,41 @@
 <ion-view view-title="New User" name="login-view">
     <ion-content class="padding">
 
+        <!--keep me for debugging-->
     <button ion-button small ng-click="backToLogin()" ion-button round class="button button-calm">Back</button>
    
 
 
 <div class="list list-inset">
           <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="user.userName">
+              <input type="text" placeholder="Username" ng-model="newUserVm.user.userName">
           </label>
 
           <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="user.password">
+              <input type="password" placeholder="Password" ng-model="newUserVm.user.password">
           </label>
 
 
           <label class="item item-input">
-              <input type="text" placeholder="E-mail" ng-model="user.email">
+              <input type="text" placeholder="E-mail" ng-model="newUserVm.user.email">
           </label>
 
 
                     <label class="item item-input">
-              <input type="text" placeholder="Cell Number" ng-model="user.phoneNum">
+              <input type="text" placeholder="Cell Number" ng-model="newUserVm.user.phoneNum">
           </label>
 
       </div>
 
 
     <div  class="col text-center">
-        <button ion-button class="button button-calm" ng-click="submitNewUser()">
+        <button ion-button class="button button-calm" ng-click="newUserVm.submitNewUser()">
                 Submit
         </button>
     </div>
 
     <div align="center">
-        <h4> {{message}} </h4>
+        <h4> {{newUserVm.message}} </h4>
       </div>
 
   </ion-content>

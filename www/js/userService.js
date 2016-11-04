@@ -14,7 +14,8 @@
         var service = {
             getUser : getUser,
             setUser : setUser,
-            login : login
+            login : login,
+            createUser : createUser
         }
         return service;
         
@@ -34,32 +35,26 @@
         function login(credentials) {
             var defer = $q.defer();
 		    var url = 'http://localhost:8080/findByUserName/' + credentials.username;
+            
             $http.get(url).then(function(response) {
                 defer.resolve(response.data);
             }, function(response) {
                 defer.reject(response);
             });
+            return defer.promise;
+        }
 
-            return defer.promise
-            }
-        //         console.log(response);
-        //         user = response.data;
-        //         return user;
-
-        //         // if(response.data.password === credentials.password) {
-        //         //     //login was a success...
-        //         //     return user;
-        //         // }
-        //         // else {
-        //         //     return "Wrong Username or Password.";
-        //         // }
-        //     }
-        //     , function(response) {
-        //         // return "Something went terribly wrong on the backend.";
-        //         return user;
-        //     })
-        //     return user;
-        // }
+        function createUser(user) {
+            var defer = $q.defer();
+            console.log(user);
+		    $http.post('http://localhost:8080/create' , user).then(function(response) {
+                defer.resolve(response.data);
+                console.log(response.data);
+            }, function(response) {
+                defer.reject(response);
+            });
+            return defer.promise;
+        } 
 
     }
 })();

@@ -1,35 +1,5 @@
 
 angular.module('app.controllers', [])
-  
-.controller('newUserCtrl', ['$scope', '$http', '$state', 
-function ($scope, $http, $state) {
-	$scope.user = {
-		"userName" : '',
-		"password" : '',
-		"email" : '',
-		"phoneNum" : '',
-		"teamName" : '',
-		"league" : '',
-		"leagueURL" : ''
-	}
-	$scope.message = '';
-
-	$scope.backToLogin = function() {
-		$state.transitionTo("login");
-	}
-	$scope.submitNewUser = function() {
-		
-		console.log($scope.user);
-
-		$http.post('http://localhost:8080/create' , $scope.user)
-	    .then(function (response) {
-		
-		$scope.message = response.data.message;
-	    })
-	}, function() {
-		$scope.message = "Sorry there was a server error.";
-	}
-}])
 
 
 .controller('favoriteCtrl', function($scope, $http, userService) {
@@ -195,7 +165,10 @@ function ($scope, $state, userService, $http) {
 	$scope.setTeam = function() {
 		var data = document.getElementById("selectTeamName");
 		var team = data.options[data.selectedIndex].text;
-		$scope.user.teamName = team;
+		console.log(team);
+		$scope.user.teamname = team;
+		console.log($scope.user);
+
 	}
 
 	$scope.setLeague = function() {
