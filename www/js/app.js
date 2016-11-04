@@ -3,9 +3,10 @@
 
   angular.module('app', [
     'ionic',
+    'login',
     'app.controllers',
-    'app.routes',
-    'app.services'
+    'topFive',
+    'settings'
     
   ]);
 })();
@@ -31,7 +32,6 @@
       StatusBar.overlaysWebView(false);
 
     }
-
   }
 })();
 

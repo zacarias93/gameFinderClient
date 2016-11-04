@@ -4,15 +4,14 @@
             <ion-item >
                 <b>League: </b> 
                     <span>
-                        {{user.league}}
+                        {{topFiveVm.user.league}}
                     </span>
             </ion-item>
         </ion-list>
 
 
-            <ion-list id="schedule-list1" ng-repeat="team in teams" ng-if="$index<5">
+            <ion-list id="schedule-list1" ng-repeat="team in topFiveVm.teams"" ng-if="$index<5">
             <ion-item class="dark" id="schedule-list-item2"  return false;">
-                
                 
                 <img src="{{team.crestURI}}" width="20%" height="auto" style="float:right;">
                 

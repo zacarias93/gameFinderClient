@@ -1,64 +1,36 @@
 
 angular.module('app.controllers', [])
   
-.controller('topFiveCtrl', function ($scope, $http, userService) {
-$scope.teams = [];
-$scope.user = userService.getUser();
-url = $scope.user.leagueURL + 'leagueTable';
-$http.get(url)
-.then(function(response) {
-	console.log(response);
-	$scope.teams = response.data.standing
-})
-})
-      
-
-.controller('loginCtrl', ['$scope', '$http', '$state', 'userService',  
-function ($scope, $http, $state, userService) {
-
-	var password = '';
-
-	$scope.data = {
-		"username": '',
-		"password": ''
+.controller('newUserCtrl', ['$scope', '$http', '$state', 
+function ($scope, $http, $state) {
+	$scope.user = {
+		"userName" : '',
+		"password" : '',
+		"email" : '',
+		"phoneNum" : '',
+		"teamName" : '',
+		"league" : '',
+		"leagueURL" : ''
 	}
-	$scope.message = "";
+	$scope.message = '';
 
-	 var clearData = function() {
-		$scope.data.username = '';
-		$scope.data.password = '';
-		$scope.message= '';
+	$scope.backToLogin = function() {
+		$state.transitionTo("login");
 	}
+	$scope.submitNewUser = function() {
+		
+		console.log($scope.user);
 
-	$scope.login = function() {
-		var url = 'http://localhost:8080/findByUserName/' + $scope.data.username;
-		$http.get(url)
-		.then(function(response) {
-			console.log(response);
-			userService.setUser(response.data);
-			if(response.data.userName === $scope.data.username  && response.data.password === $scope.data.password) {
-			clearData();	
-			$state.transitionTo("menu.favorite");	
-		}
-		else {
-			clearData();
-			$scope.message = "Wrong Username or Password."
-		}
-		}, function(response) {
-			$scope.message = "Something went terribly wrong.";
-		}
-		)
-	}
-
-	$scope.newUser = function() {
-		$state.transitionTo("newUser");
+		$http.post('http://localhost:8080/create' , $scope.user)
+	    .then(function (response) {
+		
+		$scope.message = response.data.message;
+	    })
+	}, function() {
+		$scope.message = "Sorry there was a server error.";
 	}
 }])
 
-.controller('mapCtrl', function($scope, $http, userService) {
-
-
-})
 
 .controller('favoriteCtrl', function($scope, $http, userService) {
 
@@ -203,35 +175,7 @@ function ($scope, $http, $window) {
 
 }])
 
-.controller('newUserCtrl', ['$scope', '$http', '$state', 
-function ($scope, $http, $state) {
-	$scope.user = {
-		"userName" : '',
-		"password" : '',
-		"email" : '',
-		"phoneNum" : '',
-		"teamName" : '',
-		"league" : '',
-		"leagueURL" : ''
-	}
-	$scope.message = '';
 
-	$scope.backToLogin = function() {
-		$state.transitionTo("login");
-	}
-	$scope.submitNewUser = function() {
-		
-		console.log($scope.user);
-
-		$http.post('http://localhost:8080/create' , $scope.user)
-	    .then(function (response) {
-		
-		$scope.message = response.data.message;
-	    })
-	}, function() {
-		$scope.message = "Sorry there was a server error.";
-	}
-}])
 
 .controller('settingsCtrl', ['$scope', '$state', 'userService', '$http',  
 function ($scope, $state, userService, $http) {
@@ -307,6 +251,11 @@ function ($scope, $state, userService, $http) {
 
 
 }])
+
+.controller('mapCtrl', function($scope, $http, userService) {
+
+
+})
 
 
 
