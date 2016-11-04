@@ -22,7 +22,6 @@
         }
       })
 
-    
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
@@ -33,8 +32,7 @@
         cache: false,
         url: '/settings',
         templateUrl: 'templates/settings.html',
-        // controller: 'settingsController as settingsVm'
-        controller: 'settingsCtrl'
+        controller: 'settingsController as settingsVm'
       })
 
       .state('newUser', {
@@ -72,7 +70,6 @@
     views: {
       'tab2': {
         templateUrl: 'templates/favorite.html',
-        // controller: 'favoriteCtrl'
         controller: 'favoriteController as favoriteVm'
       }
     }

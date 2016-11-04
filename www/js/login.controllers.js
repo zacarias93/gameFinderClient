@@ -43,12 +43,6 @@
         loginVm.newUser = function () {
             $state.transitionTo("newUser");
         }
-
-        activate();
-
-        ////////////////
-
-        function activate() { }
     }
 
 })();

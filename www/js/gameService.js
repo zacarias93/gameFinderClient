@@ -14,7 +14,8 @@
 
 
         var service = {
-            getGames : getGames
+            getGames : getGames,
+            getTeamnames : getTeamnames
             
         }
         return service;
@@ -22,8 +23,6 @@
         
 
         function getGames(user) {
-
-            console.log(user);
             var defer = $q.defer();
             var url = user.leagueURL + '/fixtures';
 
@@ -32,8 +31,18 @@
             }, function(response) {
                 defer.reject(response);
             });
-            console.log('DEFER.PROMISE');
-            console.log(defer.promise);
+            return defer.promise;
+        }
+
+        function getTeamnames(user) {
+            var defer = $q.defer();
+            var url = user.leagueURL + '/teams';
+
+            $http.get(url).then(function(response) {
+                defer.resolve(response.data);
+            }, function(response) {
+                defer.reject(response);
+            });
             return defer.promise;
         }
 

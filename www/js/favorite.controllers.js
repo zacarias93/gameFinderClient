@@ -16,8 +16,6 @@
         favoriteVm.user = userService.getUser();
         console.log(favoriteVm.user);
 
-// GETTING DATA BUT THE FILTER FIRES BEFORE DATA HAS COME IN...
-
         gameService.getGames(favoriteVm.user).then(function(response) {
                 var data = response;
                 console.log(data);
@@ -25,20 +23,15 @@
         }, function() {
                 console.log("Your a wizard Harry, someone messed up");
             });
-
-
-        // var response = gameService.getGames(favoriteVm.user).then(function(response) {
-        //     favoriteVm.gamesToDisplay = response;
-        // })
         
         var filterGames = function(data) {
                 console.log(data);
                 var numGames = data.count;
                 var games =  data.fixtures;
 
-                console.log(numGames);
-                console.log(games);
-                console.log(games[0]);
+                // console.log(numGames);
+                // console.log(games);
+                // console.log(games[0]);
 
                 for(var i=0; i<numGames; i++) {
                     if(games[i].status == 'SCHEDULED') {
@@ -49,15 +42,5 @@
                 }
                 console.log(favoriteVm.gamesToDisplay);
             }
-
-
-
-            
-
-        activate();
-
-        ////////////////
-
-        function activate() { }
     }
 })();

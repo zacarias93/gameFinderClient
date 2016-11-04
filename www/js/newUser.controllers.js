@@ -21,21 +21,31 @@
 
         newUserVm.message = '';
 
+        newUserVm.clear = function() {
+            newUserVm.user.username = '',
+            newUserVm.user.password = '',
+            newUserVm.user.phoneNum = '',
+            newUserVm.user.email = ''
+        }
+
         newUserVm.submitNewUser = function() {
 
         var response = userService.createUser(newUserVm.user)
             .then(function(response) {
                 newUserVm.message = response.message;
                 if(newUserVm.message == "Success!") {
+                    newUserVm.clear();
                     $state.transitionTo("login");
+                }
+                else {
+                    console.log("check");
+                    newUserVm.clear();
                 }
             })
         }
 
-        activate();
-
-        ////////////////
-
-        function activate() { }
+        newUserVm.backToLogin = function() {
+            $state.transitionTo("login");
+        }
     }
 })();

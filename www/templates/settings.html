@@ -1,27 +1,25 @@
-
-
 <ion-view title="Settings" ng-init="setUser()" >
     <ion-content padding="true" class="has-header">
         
-    <button ion-button small ng-click="backToMain()" ion-button round class="button button-calm">
+    <button ion-button small ng-click="settingsVm.backToMain()" ion-button round class="button button-calm">
         Back
     </button>
     
     <ion-list>
         <ion-item >
-            <b>Name:</b> {{user.userName}} 
+            <b>Name:</b> {{settingsVm.user.username}} 
         </ion-item>
         <ion-item >
-            <b> E-mail: </b> {{user.email}}
+            <b> E-mail: </b> {{settingsVm.user.email}}
         </ion-item>
         <ion-item >
-           <b> Cell: </b> {{user.phoneNum}}
+           <b> Cell: </b> {{settingsVm.user.phoneNum}}
         </ion-item>
         <ion-item >
-           <b> League:  </b> {{user.league}}
+           <b> League:  </b> {{settingsVm.user.league}}
         </ion-item>
         <ion-item >
-           <b> Team: </b> {{user.teamname}}
+           <b> Team: </b> {{settingsVm.user.teamname}}
         </ion-item>
     </ion-list>
 
@@ -30,14 +28,15 @@
 <div align="left">
     <ion-list>
         <ion-item >
-            <b>Choose League</b> 
+            <b>Set League:</b> 
             <span class="item-note">
-                <select id="selectLeague">
-                    <option ng-selected="true">Bundesliga</option>
-                    <option>English Premier League</option>
-                    <option>Primera Division</option>
+                <select name="selectLeague" id="selectLeague" ng-model="settingsVm.selectLeague">
+                    <option value="">Select League</option>
+                    <option value="English Premier League">English Premier League</option>
+
+                    <option value="Bundesliga">Bundesliga</option>
+                    <option value="Primera Division">Primera Division</option>
                 </select>
-                
             </span>
         </ion-item>
     </ion-list>
@@ -45,10 +44,10 @@
 <div align="left">
     <ion-list>
         <ion-item >
-            <b>Set Team</b> 
+            <b>Set Team:</b> 
                 <span class="item-note">  
-                    <select id="selectTeamName" ng-model="team">
-                        <option ng-repeat="name in teamNames" value="{{name}}">{{name}}</option>
+                    <select name="selectTeamname" id="selectTeamname" ng-model="settingsVm.selectTeamname">
+                        <option ng-repeat="name in settingsVm.teamnames" value="{{name}}">{{name}}</option>
                     </select>
                 </span>
         </ion-item>
@@ -58,10 +57,10 @@
  <div class = "button button-block padding"></div>
 
 <div align="center">
-  <button ion-button small ng-click="setLeague()" ion-button round class="button button-calm">
+  <button ion-button small ng-click="settingsVm.setLeague()" ion-button round class="button button-calm">
         Update League
   </button>
-  <button ion-button small ng-click="updateUser()" ion-button round class="button button-calm">
+  <button ion-button small ng-click="settingsVm.setTeam()" ion-button round class="button button-calm">
         Update Team
   </button>
 </div>

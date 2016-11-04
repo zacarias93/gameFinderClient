@@ -20,12 +20,5 @@
         console.log(response);
         topFiveVm.teams = response.data.standing;
         })
-        
-
-        activate();
-
-        ////////////////
-
-        function activate() { }
     }
 })();
