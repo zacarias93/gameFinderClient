@@ -1,20 +1,26 @@
-// Ionic Starter App
+(function () {
+  'use strict';
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes','app.services',])
+  angular.module('app', [
+    'ionic',
+    'app.controllers',
+    'app.routes',
+    'app.services'
+    
+  ]);
+})();
 
-.config(function($ionicConfigProvider){
-  
-})
+(function () {
+  'use strict';
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
+  angular
+    .module('app')
+    .run(mainRun);
+
+  mainRun.$inject = ['$ionicPlatform'];
+
+  function mainRun($ionicPlatform) {
+
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -22,6 +28,11 @@ angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes','ap
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+      StatusBar.overlaysWebView(false);
+
     }
-  });
-})
+
+  }
+})();
+
+
