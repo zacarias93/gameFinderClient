@@ -6,6 +6,7 @@
     'login',
     'newUser',
     'favorite',
+    'search',
     'app.controllers',
     'topFive',
     'settings'

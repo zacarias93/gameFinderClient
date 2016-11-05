@@ -27,27 +27,14 @@
 
         settingsVm.setLeague = function() {
             settingsVm.user.league = settingsVm.selectLeague;
-            settingsVm.setURL();
             settingsVm.setTeamnames();
-        }
-
-        settingsVm.setURL = function() {
-            if(settingsVm.user.league == 'English Premier League') {
-			    settingsVm.user.leagueURL = 'http://api.football-data.org/v1/competitions/426/';
-            }
-            if(settingsVm.user.league == 'Bundesliga') {
-                settingsVm.user.leagueURL = 'http://api.football-data.org/v1/competitions/430/';
-            }
-            if(settingsVm.user.league == 'Primera Division') {
-                settingsVm.user.leagueURL = 'http://api.football-data.org/v1/competitions/436/';
-            }
         }
 
         settingsVm.setTeamnames = function() {
 
             settingsVm.teamnames = [];
 
-            gameService.getTeamnames(settingsVm.user).then(function(response) {
+            gameService.getTeamnames(settingsVm.user.league).then(function(response) {
                 var data = response;
                 var numTeams = data.count;
                 console.log(data);

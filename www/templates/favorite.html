@@ -14,25 +14,33 @@
         
         <ion-list id="schedule-list1" ng-repeat="game in favoriteVm.gamesToDisplay"  ng-if="$index<3"> 
             <ion-item class="dark" id="schedule-list-item2"  return false;">
+                <div style="float:right">
+                    <span>{{game.date | date:'short'}}</span>
+                </div>
+                <div style="float:left">
+                    <b><span class="input-label">{{game.homeTeamName}}</span></b>
 
-                    <div style="float:right">
-                        <span>{{game.date | date:'short'}}</span>
-                    </div>
-                    <div style="float:left">
-                        <b><span class="input-label">{{game.homeTeamName}}</span></b>
-
-                        <p align="left"> vs </p> 
-                        <b><span class="input-label">{{game.awayTeamName}}</span></b>
-                    </div>
+                    <p align="left"> vs </p> 
+                    <b><span class="input-label">{{game.awayTeamName}}</span></b>
+                </div>
             </ion-item>
         </ion-list>
            
-            </ion-item>
-        </ion-list>
+      <div align="center">
+        <h4> {{favoriteVm.message}} </h4>
+      </div>
+
             <div class=" item item-image">
                 <img src="http://www.betcoin.ag/files/betcoin/images/maxresdefault2[1].jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
             </div>
-        </div>
+
+             <div class = "button button-block padding"></div>
+
+
+            <div align="center">
+                <button ion-button small ng-click="favoriteVm.goToSettings()" ion-button round class="button button-calm">
+                        Settings
+                </button>
     </ion-content>
 </ion-view>
 

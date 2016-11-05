@@ -48,7 +48,7 @@
     views: {
       'tab6': {
         templateUrl: 'templates/search.html',
-        controller: 'searchCtrl'
+        controller: 'searchController as searchVm'
       }
     }
   })

@@ -1,86 +1,6 @@
 
 angular.module('app.controllers', [])
 
-.controller('settingsCtrl', ['$scope', '$state', 'userService', '$http',  
-function ($scope, $state, userService, $http) {
-
-	$scope.user = userService.getUser();
-	$scope.teamNames = [];
-	var numTeams;
-	var team = $scope.user.team;
-	
-	$scope.backToMain = function() {
-		$state.transitionTo("menu.favorite");
-	}
-	$scope.setUser = function() {
-		$scope.user = userService.getUser();
-	}
-
-	$scope.setTeam = function() {
-		var data = document.getElementById("selectTeamName");
-		var team = data.options[data.selectedIndex].text;
-		console.log(team);
-		$scope.user.teamname = team;
-		console.log($scope.user);
-
-	}
-
-	$scope.setLeague = function() {
-		var data = document.getElementById("selectLeague");
-		var league = data.options[data.selectedIndex].text;
-		$scope.user.league = league;
-		console.log(league);
-		$scope.setURL();
-		$scope.setNames();
-	}
-
-	$scope.setURL = function() {
-		if($scope.user.league == 'English Premier League') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/426/';
-		}
-		if($scope.user.league == 'Bundesliga') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/430/';
-		}
-		if($scope.user.league == 'Primera Division') {
-			$scope.user.leagueURL = 'http://api.football-data.org/v1/competitions/436/';
-		}
-	}
-
-	$scope.setNames = function() {
-
-		$scope.teamNames = [];
-		var url = $scope.user.leagueURL + 'teams';
-
-		$http.get(url)
-		.then(function(response) {
-			var data = response.data;
-			numTeams = data.count;
-			console.log(data);
-
-		for(var i=0; i<numTeams; i++) {
-			$scope.teamNames.push(data.teams[i].name)
-		}
-		
-		$scope.teamNames.sort();
-
-		})
-	}
-
-	$scope.updateUser = function() {
-
-		$scope.setTeam();
-
-		$http.put('http://localhost:8080/update' , $scope.user)
-		.then(function(response) {
-			console.log(response);
-		})
-	}
-
-
-}])
-
-
-
 .controller('searchCtrl', ['$scope', '$http', '$window',   
 function ($scope, $http, $window) {
 
@@ -95,14 +15,6 @@ function ($scope, $http, $window) {
 	var league = '';
 	var url = '';
 	var count;
-
-	// $scope.debug = function() {
-	// 	console.log('$scope.games:' + $scope.games);
-	// 	console.log($scope.gamesToDisplay);
-	// 	console.log($scope.teamNames);
-	// 	console.log($scope.league);
-	// 	console.log(scope.teamName)
-	// }
 
 
 

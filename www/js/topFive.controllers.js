@@ -5,20 +5,22 @@
         .module('app')
         .controller('topFiveController', topFiveController);
 
-    topFiveController.$inject = ['$http', 'userService'];
+    topFiveController.$inject = ['$http', 'userService', 'gameService'];
 
-    function topFiveController($http, userService) {
+    function topFiveController($http, userService, gameService) {
         var topFiveVm = this;
-
         topFiveVm.teams = [];
+
         topFiveVm.user = userService.getUser();
+        console.log(topFiveVm.user);
 
-        var url = topFiveVm.user.leagueURL + 'leagueTable';
-
-        $http.get(url)
-        .then(function(response) {
-        console.log(response);
-        topFiveVm.teams = response.data.standing;
+        var response = gameService.getTopFive(topFiveVm.user.league).then(function(response) {
+            var data = response;
+            var numTeams = response.standing.length
+            console.log(numTeams);
+            for(var i=0; i<numTeams; i++) {
+                topFiveVm.teams.push(data.standing[i]);
+            }
         })
     }
 })();

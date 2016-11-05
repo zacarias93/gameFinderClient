@@ -15,8 +15,7 @@
             "email" : '',
             "phoneNum" : '',
             "teamname" : '',
-            "league" : '',
-            "leagueURL" : ''
+            "league" : ''
         }
 
         newUserVm.message = '';

@@ -1,17 +1,17 @@
-<ion-view title="Schedule" id="page6">
+<ion-view title="Search" id="page6">
     <ion-content padding="true" class="has-header" >
 
 <div align="left">
     <ion-list>
         <ion-item >
-            <b>Choose League</b> 
+            <b>Set League:</b> 
             <span class="item-note">
-                <select id="selectLeague">
-                    <option ng-selected="true">Bundesliga</option>
-                    <option>English Premier League</option>
-                    <option>Primera Division</option>
+                <select name="selectLeague" id="selectLeague" ng-model="searchVm.selectLeague">
+                    <option value="">Select League</option>
+                    <option value="English Premier League">English Premier League</option>
+                    <option value="Bundesliga">Bundesliga</option>
+                    <option value="Primera Division">Primera Division</option>
                 </select>
-                
             </span>
         </ion-item>
     </ion-list>
@@ -20,10 +20,10 @@
 <div align="left">
     <ion-list>
         <ion-item >
-            <b>Set Team</b> 
+            <b>Set Team:</b> 
                 <span class="item-note">  
-                    <select id="selectTeamName" ng-model="teamName">
-                        <option ng-repeat="name in teamNames" value="{{name}}">{{name}}</option>
+                    <select id="selectTeamame" ng-model="searchVm.selectTeamname">
+                        <option ng-repeat="name in searchVm.teamnames" value="{{name}}">{{name}}</option>
                     </select>
                 </span>
         </ion-item>
@@ -31,18 +31,15 @@
 </div>
 
 <div align="center">
-  <button ion-button small ng-click="setLeague()" ion-button round class="button button-calm">
+  <button ion-button small ng-click="searchVm.setLeague()" ion-button round class="button button-calm">
         Set League
   </button>
-  <button ion-button small ng-click="setTeam()" ion-button round class="button button-calm">
-        Set Team
-  </button>
-  <button ion-button small ng-click="displayGames()" ion-button round class="button button-calm">
+  <button ion-button small ng-click="searchVm.search()" ion-button round class="button button-calm">
         Search
   </button>
 </div>
 
-        <ion-list id="schedule-list1" ng-repeat="game in gamesToDisplay"  ng-if="$index<3"> 
+        <ion-list id="schedule-list1" ng-repeat="game in searchVm.games"  ng-if="$index<3"> 
             <ion-item class="dark" id="schedule-list-item2"  return false;">
 
                     <div style="float:right">

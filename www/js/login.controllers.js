@@ -34,9 +34,11 @@
                     userService.setUser(loginVm.response);
                     $state.transitionTo("menu.favorite");
                 }
+                else {
+                    loginVm.message = 'Wrong Username or Password'
+                }
             }, function() {
-                    console.log("Wrong Username or Password");
-                    loginVm.message = "Wrong Username or Password";
+                loginVm.message = "Error: Server";
             });
         }
 

@@ -5,42 +5,41 @@
         .module('app')
         .controller('favoriteController', favoriteController);
 
-    favoriteController.$inject = ['userService', 'gameService'];
-    function favoriteController(userService, gameService) {
+    favoriteController.$inject = ['userService', 'gameService', '$state'];
+    function favoriteController(userService, gameService, $state) {
         var favoriteVm = this;
         favoriteVm.user = {};
         favoriteVm.games = [];
+        favoriteVm.message = '';
 
         favoriteVm.gamesToDisplay = [];
 
         favoriteVm.user = userService.getUser();
         console.log(favoriteVm.user);
 
-        gameService.getGames(favoriteVm.user).then(function(response) {
+        gameService.getGames(favoriteVm.user.league).then(function(response) {
                 var data = response;
-                console.log(data);
                 filterGames(data);
         }, function() {
-                console.log("Your a wizard Harry, someone messed up");
+                favoriteVm.message = 'Please go select a team to follow!'
             });
         
         var filterGames = function(data) {
-                console.log(data);
-                var numGames = data.count;
-                var games =  data.fixtures;
+            console.log(data);
+            var numGames = data.count;
+            var games =  data.fixtures;
 
-                // console.log(numGames);
-                // console.log(games);
-                // console.log(games[0]);
-
-                for(var i=0; i<numGames; i++) {
-                    if(games[i].status == 'SCHEDULED') {
-                        if(games[i].homeTeamName == favoriteVm.user.teamname || games[i].awayTeamName == favoriteVm.user.teamname){
-                            favoriteVm.gamesToDisplay.push(games[i]);
-                        }
+            for(var i=0; i<numGames; i++) {
+                if(games[i].status == 'SCHEDULED') {
+                    if(games[i].homeTeamName == favoriteVm.user.teamname || games[i].awayTeamName == favoriteVm.user.teamname){
+                        favoriteVm.gamesToDisplay.push(games[i]);
                     }
                 }
-                console.log(favoriteVm.gamesToDisplay);
             }
+        }
+            
+        favoriteVm.goToSettings = function() {
+            $state.transitionTo('settings');
+        }
     }
 })();
