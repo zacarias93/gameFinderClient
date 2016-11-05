@@ -9,7 +9,8 @@
     function gameService($http, $q) {
 
         var games = [];
-        var gamesToDisplay = [];        
+        var gamesToDisplay = [];  
+        var leagues = []      
 
 
         var service = {

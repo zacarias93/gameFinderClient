@@ -16,6 +16,11 @@
         settingsVm.selectTeamname = '';
         var numTeams;
         var team = settingsVm.user.teamname;
+        settingsVm.leagues = [
+            "Bundesliga",
+            "English Premier League",
+            "Primera Division"
+        ]
 
         settingsVm.backToMain = function() {
             $state.transitionTo("menu.favorite");

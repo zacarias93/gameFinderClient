@@ -15,6 +15,12 @@
         searchVm.selectTeamname = '';
         searchVm.teamCrestURL = '';
 
+        searchVm.leagues = [
+            "Bundesliga",
+            "English Premier League",
+            "Primera Division"
+        ]
+
         searchVm.setLeague = function() {
             gameService.getTeamnames(searchVm.selectLeague).then(function(response) {
                 searchVm.teamnames = [];

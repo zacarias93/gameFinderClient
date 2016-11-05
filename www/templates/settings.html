@@ -30,11 +30,9 @@
         <ion-item >
             <b>Set League:</b> 
             <span class="item-note">
-                <select name="selectLeague" id="selectLeague" ng-model="settingsVm.selectLeague">
-                    <option value="">Select League</option>
-                    <option value="English Premier League">English Premier League</option>
-                    <option value="Bundesliga">Bundesliga</option>
-                    <option value="Primera Division">Primera Division</option>
+                <select ng-options="league as league for league in settingsVm.leagues" 
+                        ng-model="settingsVm.selectLeague"
+                        ng-change="settingsVm.setLeague()">
                 </select>
             </span>
         </ion-item>
@@ -45,8 +43,9 @@
         <ion-item >
             <b>Set Team:</b> 
                 <span class="item-note">  
-                    <select name="selectTeamname" id="selectTeamname" ng-model="settingsVm.selectTeamname">
-                        <option ng-repeat="name in settingsVm.teamnames" value="{{name}}">{{name}}</option>
+                    <select ng-options="team as team for team in settingsVm.teamnames" 
+                            ng-model="settingsVm.selectTeamname"
+                            ng-change="settingsVm.setTeam()">
                     </select>
                 </span>
         </ion-item>
@@ -54,15 +53,6 @@
 </div>
 
  <div class = "button button-block padding"></div>
-
-<div align="center">
-  <button ion-button small ng-click="settingsVm.setLeague()" ion-button round class="button button-calm">
-        Update League
-  </button>
-  <button ion-button small ng-click="settingsVm.setTeam()" ion-button round class="button button-calm">
-        Update Team
-  </button>
-</div>
 
 </div>
 

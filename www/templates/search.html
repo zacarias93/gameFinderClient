@@ -6,11 +6,9 @@
         <ion-item >
             <b>Set League:</b> 
             <span class="item-note">
-                <select name="selectLeague" id="selectLeague" ng-model="searchVm.selectLeague">
-                    <option value="">Select League</option>
-                    <option value="English Premier League">English Premier League</option>
-                    <option value="Bundesliga">Bundesliga</option>
-                    <option value="Primera Division">Primera Division</option>
+                <select ng-options="league as league for league in searchVm.leagues"
+                        ng-model="searchVm.selectLeague"
+                        ng-change="searchVm.setLeague()">
                 </select>
             </span>
         </ion-item>
@@ -22,21 +20,14 @@
         <ion-item >
             <b>Set Team:</b> 
                 <span class="item-note">  
-                    <select id="selectTeamame" ng-model="searchVm.selectTeamname">
-                        <option ng-repeat="name in searchVm.teamnames" value="{{name}}">{{name}}</option>
-                    </select>
+                    <select ng-options="team as team for team in searchVm.teamnames" 
+                            ng-model="searchVm.selectTeamname"
+                            ng-change="searchVm.search()">
+                     </select>
+
                 </span>
         </ion-item>
     </ion-list>
-</div>
-
-<div align="center">
-  <button ion-button small ng-click="searchVm.setLeague()" ion-button round class="button button-calm">
-        Set League
-  </button>
-  <button ion-button small ng-click="searchVm.search()" ion-button round class="button button-calm">
-        Search
-  </button>
 </div>
 
         <ion-list id="schedule-list1" ng-repeat="game in searchVm.games"  ng-if="$index<3"> 
