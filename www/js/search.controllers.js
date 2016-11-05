@@ -13,6 +13,7 @@
         searchVm.teamnames = [];
         searchVm.selectLeague = '';
         searchVm.selectTeamname = '';
+        searchVm.teamCrestURL = '';
 
         searchVm.setLeague = function() {
             gameService.getTeamnames(searchVm.selectLeague).then(function(response) {
@@ -27,6 +28,7 @@
         }
 
         searchVm.search = function() {
+            getCrestURL();
             gameService.getGames(searchVm.selectLeague).then(function(response) {
                 searchVm.games = [];
                 var data = response;
@@ -40,12 +42,8 @@
             var games = [];
             var numGames = data.count;
 
-            console.log(numGames);
-
-            games =  data.fixtures;
-            
-            console.log(searchVm.selectTeamname);
-
+            games = data.fixtures;
+     
             for(var i=0; i<numGames; i++) {
                 if(games[i].status == 'SCHEDULED') {
                     if(games[i].homeTeamName == searchVm.selectTeamname || games[i].awayTeamName == searchVm.selectTeamname){
@@ -53,8 +51,21 @@
                     }
                 }
             }
-            console.log(gamesFiltered);
             return gamesFiltered;
         }
+
+        var getCrestURL = function() {
+            var crestURL = '';
+            var response = gameService.getStandings(searchVm.selectLeague).then(function(response) {
+                var data = response;
+                var numTeams = response.standing.length
+                for(var i=0; i<numTeams; i++) {
+                    if(searchVm.selectTeamname == data.standing[i].teamName) {
+                        searchVm.teamCrestURL = data.standing[i].crestURI;                        
+                    }
+                }
+            })
+        }
+        
     }
 })();

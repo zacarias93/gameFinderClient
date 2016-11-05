@@ -15,7 +15,7 @@
         var service = {
             getGames : getGames,
             getTeamnames : getTeamnames,
-            getTopFive : getTopFive
+            getStandings : getStandings,
             
         }
         return service;
@@ -46,7 +46,7 @@
             return defer.promise;
         }
 
-        function getTopFive(league) {
+        function getStandings(league) {
             var url = getLeagueURL(league) + 'leagueTable';
             var defer = $q.defer();
 
@@ -71,6 +71,9 @@
             }
             return leagueURL;
         }
+
+        
+
 
         
 

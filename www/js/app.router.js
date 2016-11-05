@@ -45,6 +45,7 @@
 
   .state('menu.searchSchedule', {
     url: '/searchSchedule',
+    cache: false,
     views: {
       'tab6': {
         templateUrl: 'templates/search.html',
