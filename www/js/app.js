@@ -8,6 +8,7 @@
     'settings',
     'topFive',
     'favorite',
+    'gamble',
     'map',
     'search',
     'ngCordova',

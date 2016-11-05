@@ -81,6 +81,17 @@
         }
       })
 
+      .state('menu.gamble', {
+        url: '/gamble',
+        cache: false,
+        views: {
+          'tab5': {
+            templateUrl: 'templates/gamble.html',
+            controller: 'gambleController as gambleVm'
+          }
+        }
+      })
+
 $urlRouterProvider.otherwise('/login')
 
     }

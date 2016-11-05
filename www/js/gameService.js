@@ -25,7 +25,7 @@
 
         function getGames(league) {
             var defer = $q.defer();
-            var url = getLeagueURL(league) + '/fixtures';
+            var url = getLeagueURL(league) + 'fixtures';
 
             $http.get(url).then(function(response) {
                 defer.resolve(response.data);
@@ -36,7 +36,8 @@
         }
 
         function getTeamnames(league) {
-            var url = getLeagueURL(league) + '/teams';
+            var url = getLeagueURL(league) + 'teams';
+            console.log(url);
             var defer = $q.defer();
 
             $http.get(url).then(function(response) {
