@@ -62,7 +62,7 @@
 
         var getCrestURL = function() {
             var crestURL = '';
-            var response = gameService.getStandings(searchVm.selectLeague).then(function(response) {
+            gameService.getStandings(searchVm.selectLeague).then(function(response) {
                 var data = response;
                 var numTeams = response.standing.length
                 for(var i=0; i<numTeams; i++) {

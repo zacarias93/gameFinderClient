@@ -59,27 +59,27 @@
         }
     })
 
+    .state('menu.map', {
+      url: '/map',
+      cache: false,
+        views: {
+          'tab3': {
+            templateUrl: 'templates/map.html',
+            controller: 'mapController as mapVm'
+          }
+        }
+    })
+
     .state('menu.searchSchedule', {
         url: '/searchSchedule',
         cache: false,
         views: {
-          'tab6': {
+          'tab4': {
             templateUrl: 'templates/search.html',
             controller: 'searchController as searchVm'
           }
         }
       })
-
-  .state('menu.map', {
-    url: '/map',
-    cache: false,
-      views: {
-        'tab7': {
-          templateUrl: 'templates/map.html',
-          controller: 'mapController as mapVm'
-        }
-      }
-  })
 
 $urlRouterProvider.otherwise('/login')
 
