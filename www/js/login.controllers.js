@@ -43,6 +43,7 @@
         }
 
         loginVm.newUser = function () {
+            clearData();
             $state.transitionTo("newUser");
         }
     }

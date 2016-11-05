@@ -5,11 +5,11 @@
     'ionic',
     'login',
     'newUser',
-    'favorite',
-    'search',
-    'app.controllers',
+    'settings',
     'topFive',
-    'settings'
+    'favorite',
+    'map',
+    'search',
     
   ]);
 })();
