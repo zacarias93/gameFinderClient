@@ -59,8 +59,6 @@
         }
     })
 
-      
-
     .state('menu.searchSchedule', {
         url: '/searchSchedule',
         cache: false,

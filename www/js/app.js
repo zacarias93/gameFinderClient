@@ -10,6 +10,7 @@
     'favorite',
     'map',
     'search',
+    'ngCordova',
     
   ]);
 })();
