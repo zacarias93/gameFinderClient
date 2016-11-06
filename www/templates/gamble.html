@@ -13,11 +13,25 @@
     <h3>Match of the Week:</h3>
 </div>
 
-            <div align="center">
+            <!--<div align="center">
                 <button ion-button small ng-click="gambleVm.getMatchOfTheWeek()" ion-button round class="button button-calm">
                         Get Match!
                 </button>
-            </div>
+            </div>-->
+
+            <ion-list id="schedule-list1" "  > 
+            <ion-item class="dark" id="schedule-list-item2"  return false;">
+                <div style="float:right">
+                    <span>{{gambleVm.matchOfTheWeek.date | date:'short'}}</span>
+                </div>
+                <div style="float:left">
+                    <b><span class="input-label">{{gambleVm.matchOfTheWeek.homeTeamName}}</span></b>
+
+                    <p align="left"> vs </p> 
+                    <b><span class="input-label">{{gambleVm.matchOfTheWeek.awayTeamName}}</span></b>
+                </div>
+                </ion-item>
+            </ion-list>
 
 
     </ion-content>
