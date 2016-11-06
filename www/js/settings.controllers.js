@@ -28,6 +28,7 @@
 
         settingsVm.setTeam = function() {
             settingsVm.user.teamname = settingsVm.selectTeamname;
+            userService.updateUser(settingsVm.user);
         }
 
         settingsVm.setLeague = function() {

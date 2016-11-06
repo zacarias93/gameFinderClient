@@ -8,30 +8,40 @@
     userService.$inject = ['$http', '$q'];
 
     function userService($http, $q) {
-        var user = {};
+        var currentUser = {};
 
 // THESE GET RETURNED BY THE SERVICE - METHODS PUBLICLY AVAILABLE TO CALL
         var service = {
             getUser : getUser,
             setUser : setUser,
             login : login,
-            createUser : createUser
+            createUser : createUser,
+            updateUser : updateUser, 
         }
         return service;
         
 // DEFINE FUNCTIONS HERE
 
         function getUser() {
-            return user;
+            return currentUser;
          }
 
-        function setUser(object) {
-            user = object;
-            console.log(user);
-            console.log('this is the new improved service yo');
+         function setUser(user) {
+             currentUser = user;
+             console.log(currentUser);
+         }
+
+        function updateUser(user) {
+
+            console.log('updateUser() : ' , user);
+            
+		    $http.put('http://localhost:8080/update' , user).then(function(response) {
+                console.log(response);
+            }, function(response) {
+                console.log('We were unable to process the request at this time.');
+            });
         }
 
-//fixing this!!!
         function login(credentials) {
             var defer = $q.defer();
 		    var url = 'http://localhost:8080/findByUserName/' + credentials.username;
