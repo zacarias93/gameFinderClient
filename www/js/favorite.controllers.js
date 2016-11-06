@@ -17,11 +17,15 @@
         favoriteVm.user = userService.getUser();
         console.log(favoriteVm.user);
 
-        gameService.getGames(favoriteVm.user.league).then(function(response) {
+        gameService
+            .getGamesTest(favoriteVm.user.league)
+            .then(function(response) {
+                console.log(response)
                 var data = response;
                 filterGames(data);
-        }, function() {
-                favoriteVm.message = 'Please go select a team to follow!'
+            })
+            .catch(function(err) {
+                favoriteVm.message = 'Please go select a team to follow!';
             });
         
         var filterGames = function(data) {

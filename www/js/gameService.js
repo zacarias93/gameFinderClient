@@ -17,17 +17,17 @@
             getGames : getGames,
             getTeamnames : getTeamnames,
             getStandings : getStandings,
-            
+            getGamesTest: getGamesTest
         }
         return service;
 
         function getGamesTest(league) {
-            var url = getLeagueURL(league) + 'fixtures';
-
-            $http.get(url).then(function(response) {
-                console.log(response);
-                return response;
-            });
+            return $http
+                .get(getLeagueURL(league) + 'fixtures')
+                .then(function(response) {
+                    console.log(response);
+                    return response;
+                });
         }
 
         
