@@ -10,7 +10,6 @@
     function userService($http, $q) {
         var currentUser = {};
 
-// THESE GET RETURNED BY THE SERVICE - METHODS PUBLICLY AVAILABLE TO CALL
         var service = {
             getUser : getUser,
             setUser : setUser,
@@ -20,8 +19,6 @@
         }
         return service;
         
-// DEFINE FUNCTIONS HERE
-
         function getUser() {
             return currentUser;
          }
@@ -65,6 +62,7 @@
             });
             return defer.promise;
         } 
+
 
     }
 })();

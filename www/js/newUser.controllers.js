@@ -15,7 +15,8 @@
             "email" : '',
             "phoneNum" : '',
             "teamname" : '',
-            "league" : ''
+            "league" : '',
+            "prediction" : ''
         }
 
         newUserVm.message = '';
