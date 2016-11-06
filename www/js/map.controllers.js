@@ -57,25 +57,25 @@
             console.log('Markers: ', data);
             var length = data.length;
 
-            for(var i=0; i<length; i++) {
-                var place = data[i];
-                console.log(place);
-                var markerPos = new google.maps.LatLng(place.lat, place.lng);
-                console.log(markerPos);
+            // for(var i=0; i<length; i++) {
+            //     var place = data[i];
+            //     console.log(place);
+            //     var markerPos = new google.maps.LatLng(place.lat, place.lng);
+            //     console.log(markerPos);
 
 
-                // adds the marker to the map
-                // var marker = new google.maps.Marker({
-                //     map: mapVm.map,
-                //     animation: google.maps.Animation.DROP,
-                //     position = markerPos
-                // });
+            //     // adds the marker to the map
+            //     var marker = new google.maps.Marker({
+            //         map: mapVm.map,
+            //         animation: google.maps.Animation.DROP,
+            //         position = markerPos
+            //     });
 
 
 
                 // http://www.joshmorony.com/part-1-using-the-http-service-in-ionic-to-dynamically-load-google-map-markers/
                 // go there if you want info on the markers..
-            }
+            
             });
         }
 

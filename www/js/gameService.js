@@ -21,6 +21,15 @@
         }
         return service;
 
+        function getGamesTest(league) {
+            var url = getLeagueURL(league) + 'fixtures';
+
+            $http.get(url).then(function(response) {
+                console.log(response);
+                return response;
+            });
+        }
+
         
 
         function getGames(league) {
