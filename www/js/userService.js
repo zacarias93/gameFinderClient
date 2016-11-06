@@ -5,9 +5,9 @@
         .module('app')
         .service('userService', userService);
 
-    userService.$inject = ['$http', '$q'];
+    userService.$inject = ['$http'];
 
-    function userService($http, $q) {
+    function userService($http) {
         var currentUser = {};
 
         var service = {
@@ -40,29 +40,27 @@
         }
 
         function login(credentials) {
-            var defer = $q.defer();
 		    var url = 'http://localhost:8080/findByUserName/' + credentials.username;
-            
-            $http.get(url).then(function(response) {
-                defer.resolve(response.data);
-            }, function(response) {
-                defer.reject(response);
-            });
-            return defer.promise;
+
+            return $http
+                .get(url)
+                .then(function(response) {
+                    return response.data;
+                }, function(response) {
+                    console.log('Error w/ login credentials');
+                })
         }
 
         function createUser(user) {
-            var defer = $q.defer();
-            console.log(user);
-		    $http.post('http://localhost:8080/create' , user).then(function(response) {
-                defer.resolve(response.data);
-                console.log(response.data);
-            }, function(response) {
-                defer.reject(response);
-            });
-            return defer.promise;
-        } 
 
+            return $http
+                .post('http://localhost:8080/create', user)
+                .then(function(response) {
+                    return response.data;
+                }, function(response) {
+                    console.log('error w/ createUser');
+                })
+        }
 
     }
 })();

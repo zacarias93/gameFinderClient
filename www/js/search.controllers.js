@@ -22,24 +22,29 @@
         ]
 
         searchVm.setLeague = function() {
-            gameService.getTeamnames(searchVm.selectLeague).then(function(response) {
-                searchVm.teamnames = [];
-                var data = response;
-                var numTeams = data.count;
-                for(var i=0; i<numTeams; i++) {
-			        searchVm.teamnames.push(data.teams[i].name)
-                    }
-                    searchVm.teamnames.sort();
+            gameService
+                .getTeamnames(searchVm.selectLeague)
+                .then(function(response) {
+                    console.log(response);
+                    searchVm.teamnames = [];
+                    var data = response.data;
+                    var numTeams = data.count;
+                    for(var i=0; i<numTeams; i++) {
+                        searchVm.teamnames.push(data.teams[i].name)
+                        }
+                        searchVm.teamnames.sort();
                 })
         }
 
         searchVm.search = function() {
             getCrestURL();
-            gameService.getGames(searchVm.selectLeague).then(function(response) {
-                searchVm.games = [];
-                var data = response;
-                console.log(data);
-                searchVm.games = filterGames(data);
+            gameService
+                .getGames(searchVm.selectLeague)
+                .then(function(response) {
+                    searchVm.games = [];
+                    var data = response.data;
+                    console.log(data);
+                    searchVm.games = filterGames(data);
             })
         }
 

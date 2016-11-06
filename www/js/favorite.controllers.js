@@ -18,10 +18,10 @@
         console.log(favoriteVm.user);
 
         gameService
-            .getGamesTest(favoriteVm.user.league)
+            .getGames(favoriteVm.user.league)
             .then(function(response) {
                 console.log(response)
-                var data = response;
+                var data = response.data;
                 filterGames(data);
             })
             .catch(function(err) {

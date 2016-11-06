@@ -40,11 +40,11 @@
 
             settingsVm.teamnames = [];
 
-            gameService.getTeamnames(settingsVm.user.league).then(function(response) {
-                var data = response;
-                var numTeams = data.count;
-                console.log(data);
-                console.log(numTeams);
+            gameService
+                .getTeamnames(settingsVm.user.league)
+                .then(function(response) {
+                    var data = response.data;
+                    var numTeams = data.count;
 
                 for(var i=0; i<numTeams; i++) {
                     settingsVm.teamnames.push(data.teams[i].name);
