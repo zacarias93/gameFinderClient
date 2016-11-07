@@ -14,13 +14,17 @@
             </ion-item>
         </ion-list>
 
-
-
-            <!--<div align="center">
-                <button ion-button small ng-click="gambleVm.getMatchOfTheWeek()" ion-button round class="button button-calm">
-                        Get Match!
+            <div align="center">
+                <button ion-button small ng-click="gambleVm.setPredictionHomeTeam()" ion-button round class="button button-calm">
+                    Home Team
                 </button>
-            </div>-->
+
+                <span>
+                    <button ion-button small ng-click="gambleVm.setPredictionAwayTeam()" ion-button round class="button button-calm">
+                        Away Team
+                    </button>
+                </span>
+            </div>
 
             <ion-list id="schedule-list1" "  > 
             <ion-item class="dark" id="schedule-list-item2"  return false;">
@@ -35,6 +39,11 @@
                 </div>
                 </ion-item>
             </ion-list>
+
+            <div align="center">
+                <b><h4> Your Prediction: </h4></b>
+                {{gambleVm.user.prediction}}
+            </div>
 
 
     </ion-content>

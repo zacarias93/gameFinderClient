@@ -11,25 +11,31 @@
         var gambleVm = this;
         var thirdRankTeam = '';
         var team = '';
+        gambleVm.user = userService.getUser();
 
         gambleVm.league = userService.getUser().league
         gambleVm.matchOfTheWeek = {};
 
+        gambleVm.setPredictionAwayTeam = function() {
+            gambleVm.user.prediction = gambleVm.matchOfTheWeek.awayTeamName;
+        }
 
-//initialize team values then run your function w/ a button! COME BACK TO THIS
+        gambleVm.setPredictionHomeTeam = function() {
+            gambleVm.user.prediction = gambleVm.matchOfTheWeek.homeTeamName;
+            userService.updateUser(gambleVm.user);
+            console.log(gambleVm.user);
+        }
 
         gambleVm.getMatchOfTheWeek = function() { 
             var games = [];
             var teamname = team;
             console.log('teamname (matchOfTheWeek) : ' , teamname);
             console.log(gambleVm.league);
-            gameService.getGames(gambleVm.league).then(function(response) {
-
-                games = response.fixtures;
-                var length = games.length;
-                console.log(length);
-                console.log(games);
-                console.log(thirdRankTeam);
+            gameService
+                .getGames(gambleVm.league)
+                .then(function(response) {
+                    games = response.data.fixtures;
+                    var length = games.length;
 
                 for(var i=0; i<length; i++) {
                     if(games[i].status == 'SCHEDULED') {
@@ -42,6 +48,7 @@
                 }
             })
         }
+
 //Setting an arbitrary team each week for the 'match of the week' - find better way to do this later...
         function setTeamName() {
 
