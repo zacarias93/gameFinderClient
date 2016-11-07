@@ -11,6 +11,7 @@
         var gambleVm = this;
         var thirdRankTeam = '';
         var team = '';
+        
         gambleVm.user = userService.getUser();
         gambleVm.league = userService.getUser().league
         gambleVm.matchOfTheWeek = {};        
