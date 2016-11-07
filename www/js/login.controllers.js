@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('login')
@@ -10,39 +10,43 @@
     function loginController($state, userService) {
         var loginVm = this;
 
+        loginVm.message = '';
         loginVm.credentials = {
-            "username" : '',
-            "password" : ''
+            "username": '',
+            "password": ''
         }
 
-        loginVm.message = '';
+        loginVm.login = login;
+        loginVm.newUser = newUser;
 
-        var clearData = function() {
+
+        function clearData() {
             loginVm.credentials.username = '';
             loginVm.credentials.password = '';
             loginVm.message = '';
+
         }
 
-        loginVm.login = function() {
-            loginVm.response = {};
+        function login() {
 
-            var response = userService.login(loginVm.credentials)
-            .then(function(response) {
-                loginVm.response = response;
-                if(loginVm.credentials.password == loginVm.response.password) {
-                    clearData();
-                    userService.setUser(loginVm.response);
-                    $state.transitionTo("menu.favorite");
-                }
-                else {
-                    loginVm.message = 'Wrong Username or Password'
-                }
-            }, function() {
-                loginVm.message = "Error: Server";
-            });
+            userService
+                .login(loginVm.credentials)
+                .then(function (response) {
+                    var response = response;
+                    if (loginVm.credentials.password == response.password) {
+                        clearData();
+                        userService.setUser(response);
+                        $state.transitionTo("menu.favorite");
+                    }
+                    else {
+                        loginVm.message = 'Wrong Username or Password'
+                    }
+                }, function () {
+                    loginVm.message = "Error: Server";
+                });
         }
 
-        loginVm.newUser = function () {
+        function newUser() {
             clearData();
             $state.transitionTo("newUser");
         }

@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('settings')
@@ -16,41 +16,41 @@
         settingsVm.selectTeamname = '';
         var numTeams;
         var team = settingsVm.user.teamname;
-        settingsVm.leagues = [
-            "Bundesliga",
-            "English Premier League",
-            "Primera Division"
-        ]
+        settingsVm.leagues = [ "Bundesliga", "English Premier League", "Primera Division" ]
 
-        settingsVm.backToMain = function() {
+        settingsVm.backToMain = backToMain;
+        settingsVm.setTeam = setTeam;
+        settingsVm.setLeague = setLeague;
+        settingsVm.setTeamnames = setTeamnames;
+
+        function backToMain() {
             $state.transitionTo("menu.favorite");
         }
 
-        settingsVm.setTeam = function() {
+        function setTeam() {
             settingsVm.user.teamname = settingsVm.selectTeamname;
             userService.updateUser(settingsVm.user);
         }
 
-        settingsVm.setLeague = function() {
+        function setLeague() {
             settingsVm.user.league = settingsVm.selectLeague;
             settingsVm.setTeamnames();
         }
 
-        settingsVm.setTeamnames = function() {
-
+        function setTeamnames() {
             settingsVm.teamnames = [];
 
             gameService
                 .getTeamnames(settingsVm.user.league)
-                .then(function(response) {
+                .then(function (response) {
                     var data = response.data;
                     var numTeams = data.count;
-
-                for(var i=0; i<numTeams; i++) {
-                    settingsVm.teamnames.push(data.teams[i].name);
-                }
-                settingsVm.teamnames.sort();
-            })
+                    
+                    for (var i = 0; i < numTeams; i++) {
+                        settingsVm.teamnames.push(data.teams[i].name);
+                    }
+                    settingsVm.teamnames.sort();
+                })
         }
     }
 })();

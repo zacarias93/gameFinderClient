@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
@@ -9,21 +9,21 @@
     function gameService($http) {
 
         var games = [];
-        var gamesToDisplay = [];  
-        var leagues = []      
+        var gamesToDisplay = [];
+        var leagues = []
 
 
         var service = {
-            getGames : getGames,
-            getTeamnames : getTeamnames,
-            getStandings : getStandings,
+            getGames: getGames,
+            getTeamnames: getTeamnames,
+            getStandings: getStandings,
         }
         return service;
 
         function getGames(league) {
             return $http
                 .get(getLeagueURL(league) + 'fixtures')
-                .then(function(response) {
+                .then(function (response) {
                     console.log(response);
                     return response;
                 });
@@ -35,7 +35,7 @@
 
             return $http
                 .get(url)
-                .then(function(response) {
+                .then(function (response) {
                     console.log(response);
                     return response;
                 });
@@ -46,10 +46,10 @@
 
             return $http
                 .get(url)
-                .then(function(response) {
+                .then(function (response) {
                     console.log(response.data);
                     return response.data;
-                }, function(response) {
+                }, function (response) {
                     console.log("error in getStandings");
                 });
         }
@@ -61,7 +61,7 @@
                     break;
                 case 'Bundesliga': leagueURL = 'http://api.football-data.org/v1/competitions/430/';
                     break;
-                case 'Primera Division' : leagueURL = 'http://api.football-data.org/v1/competitions/436/';
+                case 'Primera Division': leagueURL = 'http://api.football-data.org/v1/competitions/436/';
                     break;
                 default: leagueURL = 'Something wrong happened in switch statement in gameService';
             }
