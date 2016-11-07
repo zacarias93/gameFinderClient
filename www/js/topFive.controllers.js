@@ -15,6 +15,7 @@
         console.log(topFiveVm.user);
 
         function response() {
+            console.log("i did response()");
             gameService
                 .getStandings(topFiveVm.user.league)
                 .then(function (response) {
@@ -26,6 +27,12 @@
                     }
                     console.log(topFiveVm.teams);
                 })
+        }
+
+        activate();
+
+        function activate() {
+            response()
         }
     }
 })();
