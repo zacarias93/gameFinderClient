@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('app')
+        .module('gamble')
         .controller('gambleController', gambleController);
 
     gambleController.$inject = ['userService', 'gameService', '$q'];
@@ -18,12 +18,12 @@
 
         gambleVm.setPredictionAwayTeam = function() {
             gambleVm.user.prediction = gambleVm.matchOfTheWeek.awayTeamName;
+            userService.updateUser(gambleVm.user);
         }
 
         gambleVm.setPredictionHomeTeam = function() {
             gambleVm.user.prediction = gambleVm.matchOfTheWeek.homeTeamName;
             userService.updateUser(gambleVm.user);
-            console.log(gambleVm.user);
         }
 
         gambleVm.getMatchOfTheWeek = function() { 
@@ -52,7 +52,6 @@
 
 //Setting an arbitrary team each week for the 'match of the week' - find better way to do this later...
         function setTeamName() {
-
             switch (gambleVm.league) {
                 case 'English Premier League': team = 'Arsenal FC';
                     break;

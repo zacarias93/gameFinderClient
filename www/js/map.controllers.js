@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('app')
+        .module('map')
         .controller('mapController', mapController);
 
     mapController.$inject = ['mapService', '$state', '$cordovaGeolocation'];

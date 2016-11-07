@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('app')
+        .module('favorite')
         .controller('favoriteController', favoriteController);
 
     favoriteController.$inject = ['userService', 'gameService', '$state'];

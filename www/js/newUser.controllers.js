@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('app')
+        .module('newUser')
         .controller('newUserController', newUserController);
 
     newUserController.$inject = ['$state', 'userService'];
@@ -15,8 +15,9 @@
             "email" : '',
             "phoneNum" : '',
             "teamname" : '',
-            "league" : '',
+            'league' : '',
             "prediction" : ''
+            
         }
 
         newUserVm.message = '';

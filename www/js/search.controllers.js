@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('app')
+        .module('search')
         .controller('searchController', searchController);
 
     searchController.$inject = ['userService', 'gameService'];

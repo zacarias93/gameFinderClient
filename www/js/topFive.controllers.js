@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('app')
+        .module('topFive')
         .controller('topFiveController', topFiveController);
 
     topFiveController.$inject = ['$http', 'userService', 'gameService'];
