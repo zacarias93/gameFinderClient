@@ -12,7 +12,6 @@
         var gamesToDisplay = [];
         var leagues = []
 
-
         var service = {
             getGames: getGames,
             getTeamnames: getTeamnames,
