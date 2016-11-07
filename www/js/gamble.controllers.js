@@ -42,6 +42,7 @@
                         if(games[i].awayTeamName == teamname || games[i].homeTeamName == teamname) {
                             gambleVm.matchOfTheWeek = games[i];
                             console.log(gambleVm.matchOfTheWeek);
+                            console.log(gambleVm.matchOfTheWeek._links.self.href);
                             break;
                         }
                     }

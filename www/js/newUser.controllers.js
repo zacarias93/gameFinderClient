@@ -32,6 +32,7 @@
 
         var response = userService.createUser(newUserVm.user)
             .then(function(response) {
+                console.log(response);
                 newUserVm.message = response.message;
                 if(newUserVm.message == "Success!") {
                     newUserVm.clear();
