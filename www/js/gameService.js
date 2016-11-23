@@ -8,22 +8,77 @@
     gameService.$inject = ['$http'];
     function gameService($http) {
 
-        var games = [];
-        var gamesToDisplay = [];
-        var leagues = []
+        var games = {};
+        var parsedGames = [];
+        var game = {
+            "homeTeamName" : '',
+            "awayTeamName" : '',
+            "date" : '',
+            "status" : ''
+        }
 
         var service = {
             getGames: getGames,
             getTeamnames: getTeamnames,
             getStandings: getStandings,
+            sendGames: sendGames,
+            parseGames: parseGames,
+            clearGame: clearGame,
+            getAllGames: getAllGames,
         }
         return service;
+
+        function clearGame() {
+            game = {
+            "homeTeamName" : '',
+            "awayTeamName" : '',
+            "date" : '',
+            "status" : ''
+            }
+        }
+
+        function parseGames() {
+            for(var i=0; i<games.length; i++) {
+                // console.log(games[i]);
+                game.homeTeamName = games[i].homeTeamName;
+                game.awayTeamName = games[i].awayTeamName;
+                game.date = games[i].date;
+                game.status = games[i].status;
+                parsedGames.push(game);
+                // console.log("parsedGames[" + i +"] : ");
+                // console.log(parsedGames[i]);
+                clearGame();
+            }
+        }
+
+        function sendGames() {
+            parseGames();
+            console.log("size: " + parsedGames.length);
+            console.log(parsedGames);
+            $http
+                .put('http://localhost:8080/getGames', parsedGames)
+                .then(function(response) {
+                    return response;
+                }, function(response) {
+                    console.log("error w/ sending games to Spring");
+                })
+            parsedGames = [];
+        }
+
+        function getAllGames() {
+            getGames('English Premier League');
+            getGames('Bundesliga');
+            getGames('Primera Division');
+        }
 
         function getGames(league) {
             return $http
                 .get(getLeagueURL(league) + 'fixtures')
                 .then(function (response) {
-                    console.log(response);
+                    // console.log(response);
+                    games = response.data.fixtures;
+                    // console.log(games);
+                    sendGames();
                     return response;
                 });
         }

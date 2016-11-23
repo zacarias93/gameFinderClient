@@ -19,7 +19,7 @@
         gameService
             .getGames(favoriteVm.user.league)
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 var data = response.data;
                 filterGames(data);
             })
@@ -28,7 +28,7 @@
             });
         
         var filterGames = function (data) {
-            console.log(data);
+            // console.log(data);
             var numGames = data.count;
             var games = data.fixtures;
 

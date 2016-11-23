@@ -16,14 +16,13 @@
         searchVm.teamCrestURL = '';
         searchVm.leagues = [ "Bundesliga", "English Premier League", "Primera Division" ]
 
-        searchVm.setLeague = league;
+        searchVm.setLeague = setLeague;
         searchVm.search = search;
 
-        function league() {
+        function setLeague() {
             gameService
                 .getTeamnames(searchVm.selectLeague)
                 .then(function (response) {
-                    console.log(response);
                     searchVm.teamnames = [];
                     var data = response.data;
                     var numTeams = data.count;
@@ -50,7 +49,6 @@
             var gamesFiltered = [];
             var games = data.fixtures;
             var numGames = data.count;
-
             for (var i = 0; i < numGames; i++) {
                 if (games[i].status == 'SCHEDULED') {
                     if (games[i].homeTeamName == searchVm.selectTeamname || games[i].awayTeamName == searchVm.selectTeamname) {

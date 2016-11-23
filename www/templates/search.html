@@ -1,59 +1,48 @@
 <ion-view title="Search" id="page6">
-    <ion-content padding="true" class="has-header" >
+    <ion-content padding="true" class="has-header">
+        <div align="left">
+            <ion-list>
+                <ion-item>
+                    <b>Set League:</b>
+                    <span class="item-note">
+                    <select ng-options="league as league for league in searchVm.leagues"
+                            ng-model="searchVm.selectLeague"
+                            ng-change="searchVm.setLeague()">
+                    </select>
+                    </span>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div align="left">
+            <ion-list>
+                <ion-item>
+                    <b>Set Team:</b>
+                    <span class="item-note">  
+                        <select ng-options="team as team for team in searchVm.teamnames" 
+                                ng-model="searchVm.selectTeamname"
+                                ng-change="searchVm.search()">
+                        </select>
+                    </span>
+                </ion-item>
+            </ion-list>
+        </div>
+        <ion-list id="schedule-list1" ng-repeat="game in searchVm.games" ng-if="$index<3">
+            <ion-item class="dark" id="schedule-list-item2" return false; ">
 
-<div align="left">
-    <ion-list>
-        <ion-item >
-            <b>Set League:</b> 
-            <span class="item-note">
-                <select ng-options="league as league for league in searchVm.leagues"
-                        ng-model="searchVm.selectLeague"
-                        ng-change="searchVm.setLeague()">
-                </select>
-            </span>
-        </ion-item>
-    </ion-list>
-</div>
-
-<div align="left">
-    <ion-list>
-        <ion-item >
-            <b>Set Team:</b> 
-                <span class="item-note">  
-                    <select ng-options="team as team for team in searchVm.teamnames" 
-                            ng-model="searchVm.selectTeamname"
-                            ng-change="searchVm.search()">
-                     </select>
-
-                </span>
-        </ion-item>
-    </ion-list>
-</div>
-
-        <ion-list id="schedule-list1" ng-repeat="game in searchVm.games"  ng-if="$index<3"> 
-            <ion-item class="dark" id="schedule-list-item2"  return false;">
-
-                    <div style="float:right">
+                    <div style="float:right ">
                         <span>{{game.date | date:'short'}}</span>
                     </div>
-                    <div style="float:left">
-                        <span class="input-label">{{game.homeTeamName}}</span>
+                    <div style="float:left ">
+                        <span class="input-label ">{{game.homeTeamName}}</span>
 
-                        <p align="left"> vs </p> 
-                        <span class="input-label">{{game.awayTeamName}}</span>
+                        <p align="left "> vs </p> 
+                        <span class="input-label ">{{game.awayTeamName}}</span>
                     </div>
             </ion-item>
         </ion-list>
-
-                <div class = "button button-block padding"></div>
-
-
-
-
-            <div align="center">
-                <img src="{{searchVm.teamCrestURL}}" width="70%" height="10%">
+        <div class = "button button-block padding "></div>
+            <div align="center ">
+                <img src="{{searchVm.teamCrestURL}} " width="70% " height="10% ">
         </div>
-
-
     </ion-content>
 </ion-view>

@@ -22,6 +22,7 @@
         settingsVm.setTeam = setTeam;
         settingsVm.setLeague = setLeague;
         settingsVm.setTeamnames = setTeamnames;
+        settingsVm.updateDB = updateDB;
 
         function backToMain() {
             $state.transitionTo("menu.favorite");
@@ -37,9 +38,12 @@
             settingsVm.setTeamnames();
         }
 
+        function updateDB() {
+            gameService.getAllGames();
+        }
+
         function setTeamnames() {
             settingsVm.teamnames = [];
-
             gameService
                 .getTeamnames(settingsVm.user.league)
                 .then(function (response) {

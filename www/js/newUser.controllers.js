@@ -17,10 +17,8 @@
             "teamname": '',
             'league': '',
             "prediction": ''
-
         }
         newUserVm.message = '';
-
         newUserVm.clear = clear;
         newUserVm.submitNewUser = submitNewUser;
         newUserVm.backToLogin = backToLogin;
@@ -37,14 +35,12 @@
              userService
                 .createUser(newUserVm.user)
                 .then(function (response) {
-                    console.log(response);
                     newUserVm.message = response.message;
                     if (newUserVm.message == "Success!") {
                         newUserVm.clear();
                         $state.transitionTo("login");
                     }
                     else {
-                        console.log("check");
                         newUserVm.clear();
                     }
                 })

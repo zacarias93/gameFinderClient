@@ -19,12 +19,10 @@
         loginVm.login = login;
         loginVm.newUser = newUser;
 
-
         function clearData() {
             loginVm.credentials.username = '';
             loginVm.credentials.password = '';
             loginVm.message = '';
-
         }
 
         function login() {
